@@ -31,6 +31,11 @@
     "tailwindcss-animate": "^1.0.7",
     "unified": "^11.0.5"
   },
+  "pnpm": {
+    "overrides": {
+      "minimatch": ">=9.0.7"
+    }
+  },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.3",
     "@types/mdast": "^4.0.4",

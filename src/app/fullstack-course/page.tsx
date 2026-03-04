@@ -92,6 +92,38 @@ export default function FullstackCoursePage() {
               >
                 {t('description')}
               </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="mt-8"
+              >
+                <Link
+                  href="/fullstack-course/resources"
+                  onClick={(e) =>
+                    handleNavigation(e, '/fullstack-course/resources')
+                  }
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-yellow-primary text-black-primary font-josefin text-lg rounded-lg hover:bg-yellow-secondary transition-colors"
+                >
+                  {t('access_content')}
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 6L15 12L9 18"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </Link>
+              </motion.div>
             </div>
 
             {/* Image Column - Desktop: Second column */}

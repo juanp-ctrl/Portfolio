@@ -122,7 +122,10 @@
     "no_students_yet": "Ningún estudiante ha contribuido aún. ¡Sé el primero!",
     "resources_title": "Recursos y documentos",
     "resources_description": "Descarga PDFs, documentos y otros materiales para aprender desarrollo Full Stack.",
-    "back_to_course": "Volver a Vista General del Curso"
+    "access_content": "Ver contenido",
+    "back_to_course": "Volver a Vista General del Curso",
+    "class_notes_title": "Notas de Clase",
+    "class_notes_description": "Fragmentos de código y notas de nuestras clases"
   },
   "seo": {
     "home_title": "Juan Pablo Jiménez | Ingeniero de Software & Desarrollador Creativo",

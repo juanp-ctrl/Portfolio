@@ -1,0 +1,233 @@
+/* Main Container */
+.container {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: 600px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: #f5f0e1;
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+  overflow-y: auto;
+  padding: 1rem 0;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    max-height: 200px;
+  }
+}
+
+.sidebarHeader {
+  padding: 0.75rem 1.25rem;
+  font-family: var(--font-josefin-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.categoryGroup {
+  margin-bottom: 0.5rem;
+}
+
+.categoryTitle {
+  padding: 0.5rem 1.25rem;
+  font-family: var(--font-josefin-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.noteItem {
+  display: block;
+  width: 100%;
+  padding: 0.625rem 1.25rem;
+  font-family: var(--font-josefin-sans);
+  font-size: 0.875rem;
+  color: #1e1e1e;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.noteItem:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.noteItemActive {
+  background-color: rgba(248, 215, 143, 0.4);
+  font-weight: 500;
+}
+
+.noteItemActive:hover {
+  background-color: rgba(248, 215, 143, 0.5);
+}
+
+/* Content Area */
+.content {
+  padding: 2rem;
+  overflow-y: auto;
+  background-color: #fff;
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 1.5rem;
+  }
+}
+
+.breadcrumb {
+  font-family: var(--font-josefin-sans);
+  font-size: 0.875rem;
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumbSeparator {
+  margin: 0 0.5rem;
+}
+
+.noteTitle {
+  font-family: var(--font-libre-baskerville);
+  font-style: italic;
+  font-size: 1.75rem;
+  color: #1e1e1e;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+
+.noteBlocks {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.textBlock {
+  font-family: var(--font-josefin-sans);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #1e1e1e;
+}
+
+.textBlock strong {
+  font-weight: 600;
+}
+
+.textBlock em {
+  font-style: italic;
+}
+
+.textBlock code {
+  background-color: #f5f0e1;
+  padding: 0.125rem 0.375rem;
+  border-radius: 4px;
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.875em;
+}
+
+/* Code Block */
+.codeBlock {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.codeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: #f0e4b8;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.languageBadge {
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #1e1e1e;
+}
+
+.copyButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.5);
+  transition: color 0.15s ease;
+  border-radius: 4px;
+}
+
+.copyButton:hover {
+  color: #1e1e1e;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.codeContent {
+  margin: 0;
+  padding: 1rem;
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+
+.codeLine {
+  display: flex;
+}
+
+.lineNumber {
+  user-select: none;
+  width: 2rem;
+  text-align: right;
+  padding-right: 1rem;
+  color: rgba(0, 0, 0, 0.35);
+  flex-shrink: 0;
+}
+
+.lineContent {
+  flex: 1;
+}
+
+/* Empty State */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 400px;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.emptyIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.emptyText {
+  font-family: var(--font-josefin-sans);
+  font-size: 1rem;
+}

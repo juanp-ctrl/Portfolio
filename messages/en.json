@@ -125,7 +125,10 @@
     "no_students_yet": "No students have contributed yet. Be the first!",
     "resources_title": "Resources and Documents",
     "resources_description": "Download PDFs, documents, and other materials for the course.",
-    "back_to_course": "Back to Course Overview"
+    "access_content": "Access content",
+    "back_to_course": "Back to Course Overview",
+    "class_notes_title": "Class Notes",
+    "class_notes_description": "Code snippets and notes from our classes"
   },
   "seo": {
     "home_title": "Juan Pablo Jiménez | Software Engineer & Creative Developer",

@@ -2,7 +2,7 @@
 id: react-counter
 title: "Ejemplo Práctico: Contador"
 category: React
-order: 4
+order: 13
 ---
 
 Veamos la diferencia práctica con un contador simple. Primero la versión imperativa:

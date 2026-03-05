@@ -8,6 +8,7 @@ import type {
   NoteBlock,
   CodeLanguage,
 } from '@/components/ClassNotes/types'
+import remarkGfm from 'remark-gfm'
 import type {
   Root,
   RootContent,
@@ -17,6 +18,9 @@ import type {
   List,
   ListItem,
   PhrasingContent,
+  Table,
+  TableRow,
+  TableCell,
 } from 'mdast'
 
 const NOTES_DIRECTORY = path.join(process.cwd(), 'content/notes')
@@ -79,6 +83,32 @@ function headingToHtml(heading: Heading): string {
   return `<${tag}>${content}</${tag}>`
 }
 
+function tableCellToHtml(cell: TableCell, isHeader: boolean): string {
+  const tag = isHeader ? 'th' : 'td'
+  const content = phrasingToHtml(cell.children as PhrasingContent[])
+  return `<${tag}>${content}</${tag}>`
+}
+
+function tableRowToHtml(row: TableRow, isHeader: boolean): string {
+  const cells = row.children
+    .map((cell) => tableCellToHtml(cell as TableCell, isHeader))
+    .join('')
+  return `<tr>${cells}</tr>`
+}
+
+function tableToHtml(table: Table): string {
+  const rows = table.children as TableRow[]
+  if (rows.length === 0) return ''
+
+  const headerRow = tableRowToHtml(rows[0], true)
+  const bodyRows = rows
+    .slice(1)
+    .map((row) => tableRowToHtml(row, false))
+    .join('')
+
+  return `<table><thead>${headerRow}</thead><tbody>${bodyRows}</tbody></table>`
+}
+
 function isValidCodeLanguage(
   lang: string | null | undefined,
 ): lang is CodeLanguage {
@@ -94,8 +124,9 @@ function isValidCodeLanguage(
 }
 
 export function parseMarkdownToBlocks(content: string): NoteBlock[] {
-  const processor = unified().use(remarkParse)
+  const processor = unified().use(remarkParse).use(remarkGfm)
   const tree = processor.parse(content) as Root
+  processor.runSync(tree)
   const blocks: NoteBlock[] = []
   let blockId = 1
 
@@ -138,6 +169,15 @@ export function parseMarkdownToBlocks(content: string): NoteBlock[] {
           id: String(blockId++),
           type: 'text',
           content: listToHtml(list),
+        })
+        break
+      }
+      case 'table': {
+        const table = node as Table
+        blocks.push({
+          id: String(blockId++),
+          type: 'text',
+          content: tableToHtml(table),
         })
         break
       }

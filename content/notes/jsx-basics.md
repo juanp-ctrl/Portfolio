@@ -2,7 +2,7 @@
 id: jsx-basics
 title: "JSX: La Ilusión de Escribir HTML en JavaScript"
 category: React
-order: 1
+order: 11
 ---
 
 Cuando ven código React por primera vez, seguramente piensan: "¿Eso es HTML dentro de JavaScript?" No lo es. Es **JSX** (JavaScript XML), una extensión de sintaxis que *parece* HTML pero es 100% JavaScript.

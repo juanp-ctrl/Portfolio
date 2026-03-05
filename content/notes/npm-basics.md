@@ -1,8 +1,8 @@
 ---
 id: npm-basics
-title: 'Que es y como funciona npm'
-category: JavaScript Fundamentals
-order: 5
+title: "npm: El Supermercado de Código JavaScript"
+category: Build Tools
+order: 6
 ---
 
 ## npm: El Supermercado de Código JavaScript

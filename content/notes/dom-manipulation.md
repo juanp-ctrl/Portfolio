@@ -2,7 +2,7 @@
 id: dom-manipulation
 title: "Manipulación del DOM con JavaScript Vanilla"
 category: JavaScript Fundamentals
-order: 2
+order: 3
 ---
 
 Antes de React, manipulábamos el DOM directamente. Esto se conoce como programación **imperativa**: le decimos al navegador *exactamente* qué pasos seguir.

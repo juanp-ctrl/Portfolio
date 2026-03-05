@@ -33,12 +33,13 @@
 
 .sidebarHeader {
   padding: 0.75rem 1.25rem;
-  font-family: var(--font-josefin-sans);
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-family: var(--font-libre-baskerville);
+  font-size: 0.85rem;
+  font-weight: 900;
+  font-style: italic;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgb(0, 0, 0);
 }
 
 .categoryGroup {
@@ -47,12 +48,13 @@
 
 .categoryTitle {
   padding: 0.5rem 1.25rem;
-  font-family: var(--font-josefin-sans);
+  font-family: var(--font-libre-baskerville);
   font-size: 0.7rem;
-  font-weight: 600;
+  font-weight: 900;
+  font-style: italic;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: rgba(0, 0, 0, 0.4);
+  color: rgb(0, 0, 0);
 }
 
 .noteItem {
@@ -61,6 +63,7 @@
   padding: 0.625rem 1.25rem;
   font-family: var(--font-josefin-sans);
   font-size: 0.875rem;
+  font-weight: 600;
   color: #1e1e1e;
   background: transparent;
   border: none;
@@ -75,7 +78,7 @@
 
 .noteItemActive {
   background-color: rgba(248, 215, 143, 0.4);
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .noteItemActive:hover {
@@ -142,6 +145,29 @@
   border-radius: 4px;
   font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
   font-size: 0.875em;
+}
+
+.textBlock table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.textBlock th,
+.textBlock td {
+  padding: 0.625rem 0.875rem;
+  text-align: left;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.textBlock th {
+  background-color: #f5f0e1;
+  font-weight: 600;
+}
+
+.textBlock tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.02);
 }
 
 /* Code Block */

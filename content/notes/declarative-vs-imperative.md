@@ -2,7 +2,7 @@
 id: declarative-vs-imperative
 title: "Declarativo vs Imperativo"
 category: React
-order: 3
+order: 10
 ---
 
 **Imperativo**: Describes *cómo* hacer algo, paso a paso. Como dar instrucciones detalladas para llegar a un lugar.

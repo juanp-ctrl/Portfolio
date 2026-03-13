@@ -36,6 +36,12 @@ const resources = [
     fileSize: '0.4 MB',
     fileType: 'pdf' as const,
   },
+  {
+    fileName: 'Guia TypeScript y Componentes',
+    filePath: '/fullstack-course/resources/Guia_Typescript_Componentes.pdf',
+    fileSize: '0.4 MB',
+    fileType: 'pdf' as const,
+  },
 ]
 
 interface ResourcesPageClientProps {

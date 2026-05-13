@@ -3,3 +3,9 @@ allowBuilds:
   '@swc/core': true
   sharp: true
   unrs-resolver: true
+
+overrides:
+  minimatch: '9.0.7'
+  flatted: '3.4.2'
+  picomatch: '4.0.4'
+  yaml: '2.8.3'

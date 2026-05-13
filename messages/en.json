@@ -4,6 +4,7 @@
     "change_lng": "Change to Spanish",
     "home": "Home",
     "about": "About me",
+    "blog": "Blog",
     "projects": "Projects",
     "fullstack_course": "Fullstack Course",
     "resources": "Resources",
@@ -149,5 +150,17 @@
     "keywords_about": "Juan Pablo Jiménez, frontend developer, software engineer, UPB graduate, Medellín developer, React specialist, TypeScript expert, web accessibility, WCAG, microfrontend architecture",
     "keywords_projects": "web development projects, React projects, Next.js applications, TypeScript apps, Random-Q, portfolio projects, frontend development showcase, creative web applications",
     "keywords_contact": "contact frontend developer software engineer, hire React developer, web development services, freelance developer Medellín, remote developer, Juan Pablo Jiménez contact"
+  },
+  "blog": {
+    "title": "Blog",
+    "hero_label": "Latest post",
+    "hero_read": "Read article",
+    "recent_title": "Recent Posts",
+    "all_title": "All Posts",
+    "min_read": "min read",
+    "back_to_blog": "Back to blog",
+    "toc_title": "File tree",
+    "toc_mobile": "Contents",
+    "cover_alt": "Cover image for"
   }
 }

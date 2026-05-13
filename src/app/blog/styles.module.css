@@ -1,0 +1,475 @@
+/* ─── Hero section ──────────────────────────────────────────────────────── */
+.hero {
+  background-color: var(--black_alternative);
+  color: var(--white_alternative);
+  width: 100%;
+  border-radius: 0 0 3.3rem 3.3rem;
+  box-shadow: 0 3px 10px 1px #000000;
+  overflow: hidden;
+  padding: 7rem 2.5rem 3.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    'toprow'
+    'title'
+    'excerpt'
+    'meta'
+    'link';
+  min-height: 460px;
+  position: relative;
+}
+
+/* Path + pill on the same row */
+.heroTopRow {
+  grid-area: toprow;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.heroPath {
+  font-family: var(--font-josefin-sans);
+  font-size: 0.92rem;
+  letter-spacing: 0.07em;
+  text-transform: capitalize;
+  color: var(--yellow);
+  opacity: 0.8;
+  margin: 0;
+}
+
+.heroCategoryPill {
+  flex-shrink: 0;
+  background: rgba(248, 215, 143, 0.14);
+  border: 1px solid rgba(248, 215, 143, 0.35);
+  color: var(--yellow);
+  border-radius: 999px;
+  padding: 0.2rem 0.6rem;
+  font-family: var(--font-josefin-sans);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Hero image area */
+.heroImageWrap {
+  display: none;
+}
+
+.heroTitle {
+  grid-area: title;
+  font-family: var(--font-libre-baskerville);
+  font-style: italic;
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  line-height: 1.2;
+  color: var(--white_alternative);
+  margin: 0 0 1rem;
+  max-width: 22ch;
+}
+
+.heroExcerpt {
+  grid-area: excerpt;
+  font-family: var(--font-josefin-sans);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: rgba(250, 250, 250, 0.78);
+  max-width: 60ch;
+  margin-bottom: 1.5rem;
+}
+
+.heroMeta {
+  grid-area: meta;
+  font-family: var(--font-josefin-sans);
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  color: rgba(250, 250, 250, 0.82);
+  margin-bottom: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.heroMeta span::before {
+  content: '·';
+  margin-right: 0.5rem;
+}
+
+.heroMeta span:first-child::before {
+  content: none;
+}
+
+.heroReadLink {
+  grid-area: link;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-josefin-sans);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(248, 215, 143, 0.4);
+  padding-bottom: 0.15rem;
+  width: fit-content;
+  transition:
+    border-color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.heroReadLink:hover {
+  border-color: var(--yellow);
+  opacity: 0.85;
+}
+
+/* ─── Main content area ─────────────────────────────────────────────────── */
+.contentArea {
+  max-width: min(1200px, calc(100% - 3rem));
+  margin: 0 auto;
+  padding: 3.5rem 0 2rem;
+}
+
+/* ─── Section headings ──────────────────────────────────────────────────── */
+.sectionHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-libre-baskerville);
+  font-style: italic;
+  font-size: clamp(1.45rem, 2.5vw, 1.85rem);
+  color: var(--black_alternative);
+  margin: 0;
+}
+
+.sectionRule {
+  flex: 1;
+  height: 1px;
+  background: #e8d0b3;
+  border: none;
+}
+
+/* ─── Post cards grid (3 recent posts) ──────────────────────────────────── */
+.cardGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.1rem;
+  margin-bottom: 3.5rem;
+}
+
+.postCard {
+  background: #fffcf7;
+  border: 1px solid #e8d0b3;
+  border-radius: 18px;
+  padding: 1.4rem 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.postCard:hover {
+  box-shadow: 0 6px 22px rgba(30, 20, 10, 0.1);
+  transform: translateY(-2px);
+}
+
+.cardCategory {
+  font-family: var(--font-josefin-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #7a5c2e;
+}
+
+.cardTitle {
+  font-family: var(--font-libre-baskerville);
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.35;
+  color: var(--black_alternative);
+  text-decoration: none;
+  margin: 0;
+}
+
+.cardTitle:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cardExcerpt {
+  font-family: var(--font-josefin-sans);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #4a4540;
+  margin: 0;
+  flex: 1;
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 0.35rem;
+}
+
+.cardDate {
+  font-family: var(--font-josefin-sans);
+  font-size: 0.88rem;
+  letter-spacing: 0.03em;
+  color: #8a847e;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.tag {
+  font-family: var(--font-josefin-sans);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #8b3a1a;
+  background: #f5e6d3;
+  border: 1px solid #e8d0b3;
+  border-radius: 999px;
+  padding: 0.26rem 0.65rem;
+}
+
+/* ─── Strip list (all posts) ────────────────────────────────────────────── */
+.stripList {
+  display: flex;
+  flex-direction: column;
+}
+
+.stripRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.25rem;
+  padding: 1.1rem 0;
+  border-top: 1px solid #e8d0b3;
+  transition: background 0.18s ease;
+}
+
+.stripRow:last-child {
+  border-bottom: 1px solid #e8d0b3;
+}
+
+/* Visible on mobile; hidden only on tablet; restored on desktop */
+.postCardTabletHidden {
+  display: flex;
+}
+
+/* Extra strip entry: hidden on mobile & desktop, visible only on tablet.
+   Must come after .stripRow so display:none wins the cascade. */
+.stripRowTabletOnly {
+  display: none;
+}
+
+.stripRow:hover {
+  background: #fff8f0;
+  padding-left: 0.5rem;
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+  padding-right: 0.5rem;
+  border-radius: 8px;
+}
+
+.stripMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-josefin-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: #8a847e;
+}
+
+.stripDot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #bbb;
+  flex-shrink: 0;
+}
+
+.stripCategoryLabel {
+  font-family: var(--font-josefin-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #7a5c2e;
+}
+
+.stripTitle {
+  font-family: var(--font-libre-baskerville);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.3;
+  color: var(--black_alternative);
+  text-decoration: none;
+}
+
+.stripTitle:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ─── Hero image placeholder ────────────────────────────────────────────── */
+.heroImageWrap {
+  display: none;
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  aspect-ratio: 16 / 10;
+  align-self: center;
+}
+
+.heroImagePlaceholder {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-family: var(--font-josefin-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.heroImageIcon {
+  width: 2.4rem;
+  height: 2.4rem;
+  opacity: 0.3;
+}
+
+.heroImage {
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+/* ─── Responsive ────────────────────────────────────────────────────────── */
+
+/* Mobile: image appears below breadcrumb, stacked layout */
+@media (max-width: 767px) {
+  .hero {
+    grid-template-areas:
+      'toprow'
+      'image'
+      'title'
+      'excerpt'
+      'meta'
+      'link';
+  }
+
+  .heroImageWrap {
+    display: flex;
+    grid-area: image;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (min-width: 640px) {
+  .cardGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* tablet only: hide 3rd card in grid, show it at top of strip list */
+  .postCardTabletHidden {
+    display: none;
+  }
+
+  .stripRowTabletOnly {
+    display: grid;
+  }
+
+  .stripRow {
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    column-gap: 1.25rem;
+  }
+
+  .stripMeta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+    min-width: 90px;
+  }
+
+  .stripDot {
+    display: none;
+  }
+}
+
+/* Desktop: full-width top row, then content left / image right */
+@media (min-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr minmax(280px, 38%);
+    grid-template-areas:
+      'toprow  toprow'
+      'title   image'
+      'excerpt image'
+      'meta    image'
+      'link    image';
+    column-gap: 3rem;
+    align-items: start;
+  }
+
+  .heroImageWrap {
+    display: flex;
+    grid-area: image;
+    align-self: stretch;
+    aspect-ratio: unset;
+  }
+
+  .heroImagePlaceholder {
+    min-height: unset;
+    height: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    padding: 9rem 5rem 4rem;
+    column-gap: 4rem;
+  }
+
+  .cardGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* desktop: show 3rd card again, hide the duplicate strip entry */
+  .postCardTabletHidden {
+    display: flex;
+  }
+
+  .stripRowTabletOnly {
+    display: none;
+  }
+}
+
+@media (min-width: 1424px) {
+  .hero {
+    padding: 9rem 7rem 4rem;
+  }
+}

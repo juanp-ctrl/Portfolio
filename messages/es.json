@@ -4,6 +4,7 @@
     "change_lng": "Cambiar a Inglés",
     "home": "Inicio",
     "about": "Perfil",
+    "blog": "Blog",
     "projects": "Proyectos",
     "fullstack_course": "Curso Full Stack",
     "resources": "Recursos",
@@ -147,5 +148,17 @@
     "keywords_about": "Juan Pablo Jiménez, desarrollador frontend, ingeniero de software, graduado UPB, desarrollador Medellín, especialista React, experto TypeScript, accesibilidad web, WCAG, arquitectura microfrontend",
     "keywords_projects": "proyectos desarrollo web, proyectos React, aplicaciones Next.js, apps TypeScript, Random-Q, proyectos portafolio, showcase desarrollo frontend, aplicaciones web creativas",
     "keywords_contact": "contactar desarrollador frontend, contratar desarrollador React, servicios desarrollo web, desarrollador freelance Medellín, desarrollador remoto, contacto Juan Pablo Jiménez"
+  },
+  "blog": {
+    "title": "Blog",
+    "hero_label": "Última publicación",
+    "hero_read": "Leer artículo",
+    "recent_title": "Publicaciones Recientes",
+    "all_title": "Todas las Publicaciones",
+    "min_read": "min de lectura",
+    "back_to_blog": "Volver al blog",
+    "toc_title": "Estructura",
+    "toc_mobile": "Contenido",
+    "cover_alt": "Imagen de portada de"
   }
 }

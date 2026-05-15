@@ -1,4 +1,4 @@
-import { useTranslations } from 'next-intl'
+import { useTranslations } from '@/context/I18nContext'
 
 interface Friend {
   name: string
@@ -63,7 +63,7 @@ const useProjects = () => {
     },
     {
       name: t('name_soon'),
-      images: ['/images/IMG_8.webp'],
+      images: ['/images/trail/IMG_8.webp'],
       description: ['We will explore'],
       impact: t('impact_rq'),
       techHighlights: [t('tech_highlight_rq_1')],

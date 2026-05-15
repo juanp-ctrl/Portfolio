@@ -9,7 +9,7 @@ import styles from './styles.module.css'
 import { motion, Variants } from 'motion/react'
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
-import { useTranslations, useLocale } from 'next-intl'
+import { useTranslations, useLocale } from '@/context/I18nContext'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 
 const menuSlide: Variants = {

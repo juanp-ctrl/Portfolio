@@ -30,7 +30,7 @@
 // EN: These are the necessary imports for the page to work
 // ES: Estas son las importaciones necesarias para que la página funcione
 
-import { useTranslations } from 'next-intl'
+import { useTranslations } from '@/context/I18nContext'
 import Header from '@/components/Header/Header'
 import PageTransition from '@/components/PageTransition'
 import Footer from '@/components/Footer'

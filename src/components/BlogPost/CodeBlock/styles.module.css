@@ -1,0 +1,144 @@
+/* ── Option-2 inspired code block ── */
+
+.wrapper {
+  margin: 1.4rem 0;
+  border: 1px solid #d5dce3;
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+/* Top bar — mimics the Option-2 inset header bar */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.45rem 0.75rem;
+  background: #f3f6f8;
+  border-bottom: 1px solid #d5dce3;
+}
+
+.filename {
+  color: #63717d;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.copyBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: transparent;
+  border: 1px solid #d5dce3;
+  border-radius: 6px;
+  padding: 0.22rem 0.5rem;
+  cursor: pointer;
+  color: #63717d;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.copyBtn:hover {
+  background: #e8edf1;
+  color: #374151;
+  border-color: #b0bbc5;
+}
+
+.copyLabel {
+  display: none;
+}
+
+@media (min-width: 480px) {
+  .copyLabel {
+    display: inline;
+  }
+}
+
+/* Code area */
+.pre {
+  margin: 0 !important;
+  padding: 0.9rem 0 !important;
+  overflow-x: auto;
+  background: #ffffff !important;
+  border-radius: 0 !important;
+}
+
+.line {
+  display: flex;
+  align-items: flex-start;
+  padding: 0 0.75rem;
+  min-height: 1.4em;
+}
+
+.line:hover {
+  background: rgba(0, 0, 0, 0.025);
+}
+
+.lineNum {
+  flex-shrink: 0;
+  width: 2rem;
+  text-align: right;
+  margin-right: 1rem;
+  color: #b0bcc8;
+  font-size: 0.75rem;
+  user-select: none;
+  padding-top: 0.05em;
+}
+
+.lineCode {
+  flex: 1;
+  overflow-x: visible;
+  white-space: pre;
+}
+
+/* ── Dark wrapper ─────────────────────────────────────────── */
+
+.darkWrapper {
+  border-color: #3a3530;
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.darkWrapper .header {
+  background: #252525;
+  border-bottom-color: #3a3530;
+}
+
+.darkWrapper .filename {
+  color: #8a8580;
+}
+
+.darkWrapper .copyBtn {
+  border-color: #3a3530;
+  color: #8a8580;
+}
+
+.darkWrapper .copyBtn:hover {
+  background: #2e2e2e;
+  color: #e8e4df;
+  border-color: #5a5550;
+}
+
+.darkWrapper .pre {
+  background: #1a1a1a !important;
+}
+
+.darkWrapper .line:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.darkWrapper .lineNum {
+  color: #4a4540;
+}

@@ -8,16 +8,16 @@ const navItems = [
     path: '/about',
   },
   {
+    title: 'blog',
+    path: '/blog',
+  },
+  {
     title: 'projects',
     path: '/projects',
   },
   {
     title: 'fullstack_course',
     path: '/fullstack-course',
-  },
-  {
-    title: 'resources',
-    path: '/fullstack-course/resources',
   },
   {
     title: 'contact',

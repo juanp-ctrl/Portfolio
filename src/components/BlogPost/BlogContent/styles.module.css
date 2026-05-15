@@ -1,0 +1,278 @@
+/* ── Blog content body — white/yellow palette ─── */
+
+.content {
+  font-family: var(--font-josefin-sans);
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #292826;
+  width: 100%;
+}
+
+/* ── Headings ─────────────────────────────────────────────── */
+
+.heading {
+  font-family: var(--font-libre-baskerville);
+  font-style: italic;
+  color: #1e1e1e;
+  margin-top: 2.4rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.25;
+  scroll-margin-top: 5.5rem;
+}
+
+.h1 {
+  font-size: clamp(1.6rem, 2.5vw, 2rem);
+}
+.h2 {
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+}
+.h3 {
+  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+}
+.h4 {
+  font-size: 1.05rem;
+}
+.h5 {
+  font-size: 0.95rem;
+}
+.h6 {
+  font-size: 0.88rem;
+}
+
+/* ── Paragraph ───────────────────────────────────────────── */
+
+.paragraph {
+  margin: 0 0 1.1rem;
+  color: #3d3b36;
+}
+
+/* Inline elements inside paragraphs/headings */
+.content :global(code) {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.85em;
+  background: #fffbec;
+  border: 1px solid #f2df6b;
+  border-radius: 5px;
+  padding: 0.1em 0.38em;
+  color: #5c4a00;
+  white-space: nowrap;
+}
+
+.content :global(a) {
+  color: #a07800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(160, 120, 0, 0.4);
+  transition:
+    color 0.15s ease,
+    text-decoration-color 0.15s ease;
+}
+
+.content :global(a:hover) {
+  color: #7a5c00;
+  text-decoration-color: rgba(122, 92, 0, 0.8);
+}
+
+.content :global(strong) {
+  font-weight: 700;
+  color: #1e1e1e;
+}
+
+.content :global(em) {
+  font-style: italic;
+}
+
+/* ── Callout (blockquote) ────────────────────────────────── */
+
+.callout {
+  margin: 1.25rem 0;
+  border: 1px solid #f2df6b;
+  border-left: 4px solid #f8d78f;
+  border-radius: 0 10px 10px 0;
+  padding: 0.75rem 1rem;
+  background: #fffbec;
+  color: #3d3b36;
+  font-size: 0.95rem;
+}
+
+.callout :global(p) {
+  margin: 0 0 0.5rem;
+}
+
+.callout :global(p:last-child) {
+  margin-bottom: 0;
+}
+
+/* ── List ────────────────────────────────────────────────── */
+
+.list :global(ul),
+.list :global(ol) {
+  margin: 0.4rem 0 1.1rem;
+  padding-left: 1.5rem;
+  color: #3d3b36;
+}
+
+.list :global(li) {
+  margin-bottom: 0.35rem;
+  line-height: 1.65;
+}
+
+.list :global(li > ul),
+.list :global(li > ol) {
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+}
+
+.list :global(ul) {
+  list-style-type: '▸  ';
+}
+
+.list :global(ol) {
+  list-style-type: decimal;
+}
+
+/* ── Table ────────────────────────────────────────────────── */
+
+.tableWrapper {
+  overflow-x: auto;
+  margin: 1.25rem 0;
+}
+
+.tableWrapper :global(table) {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.tableWrapper :global(th),
+.tableWrapper :global(td) {
+  padding: 0.55rem 0.85rem;
+  border: 1px solid #f2df6b;
+  text-align: left;
+  vertical-align: top;
+}
+
+.tableWrapper :global(th) {
+  background: #fffbec;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: #5c4a00;
+}
+
+.tableWrapper :global(tr:nth-child(even) td) {
+  background: #fafaf5;
+}
+
+/* ── Divider ─────────────────────────────────────────────── */
+
+.divider {
+  border: none;
+  border-top: 1px dashed #f2df6b;
+  margin: 2rem 0;
+}
+
+/* ── Figure / Image ──────────────────────────────────────── */
+
+.figure {
+  margin: 1.75rem auto;
+  max-width: min(100%, 36rem);
+  text-align: center;
+}
+
+.figureImg {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid #f2df6b;
+  display: block;
+  margin-inline: auto;
+}
+
+.figCaption {
+  margin-top: 0.5rem;
+  font-size: 0.82rem;
+  color: #6b6560;
+  text-align: center;
+  font-style: italic;
+}
+
+/* ── Dark mode ───────────────────────────────────────────── */
+
+.darkMode {
+  color: #e8e4df;
+  transition:
+    color 0.3s ease,
+    background 0.3s ease;
+}
+
+.darkMode .heading {
+  color: #fafafa;
+}
+
+.darkMode .paragraph {
+  color: #d4d0cb;
+}
+
+.darkMode :global(strong) {
+  color: #fafafa;
+}
+
+.darkMode :global(em) {
+  color: #e8e4df;
+}
+
+.darkMode :global(code) {
+  background: #2a2520;
+  border-color: #5c4a00;
+  color: #f2df6b;
+}
+
+.darkMode :global(a) {
+  color: #f2df6b;
+  text-decoration-color: rgba(242, 223, 107, 0.4);
+}
+
+.darkMode :global(a:hover) {
+  color: #f8d78f;
+  text-decoration-color: rgba(248, 215, 143, 0.8);
+}
+
+.darkMode .callout {
+  background: #2a2520;
+  border-color: #5c4a00;
+  border-left-color: #8b6810;
+  color: #d4d0cb;
+}
+
+.darkMode .list :global(ul),
+.darkMode .list :global(ol) {
+  color: #d4d0cb;
+}
+
+.darkMode .tableWrapper :global(th) {
+  background: #252525;
+  color: #f2df6b;
+}
+
+.darkMode .tableWrapper :global(th),
+.darkMode .tableWrapper :global(td) {
+  border-color: #5c4a00;
+}
+
+.darkMode .tableWrapper :global(tr:nth-child(even) td) {
+  background: #242020;
+}
+
+.darkMode .divider {
+  border-top-color: #5c4a00;
+}
+
+.darkMode .figureImg {
+  border-color: #5c4a00;
+}
+
+.darkMode .figCaption {
+  color: #9a9590;
+}

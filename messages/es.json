@@ -4,6 +4,7 @@
     "change_lng": "Cambiar a Inglés",
     "home": "Inicio",
     "about": "Perfil",
+    "blog": "Blog",
     "projects": "Proyectos",
     "fullstack_course": "Curso Full Stack",
     "resources": "Recursos",
@@ -78,7 +79,9 @@
     "tech_highlight_rq_2": "Firebase Firestore: Utilizado como base de datos backend para gestionar el sistema de likes y almacenar datos de preguntas de manera eficiente.",
     "tech_highlight_rq_3": "Hosting de Firebase: La aplicación se implementó con la robusta solución de hosting de Firebase, asegurando tiempos de carga rápidos y escalabilidad.",
     "tech_highlight_rq_4": "Pipeline CI/CD: Los flujos de trabajo automatizados mediante GitHub Actions agilizan el proceso de desarrollo e implementación, permitando iteraciones rápidas y entregas consistentes.",
-    "name_soon": "Pronto..."
+    "name_soon": "Pronto...",
+    "previous_project": "Proyecto anterior",
+    "next_project": "Siguiente proyecto"
   },
   "404": {
     "404_title": "Houston, tenemos un problema!",
@@ -146,5 +149,17 @@
     "keywords_about": "Juan Pablo Jiménez, desarrollador frontend, ingeniero de software, graduado UPB, desarrollador Medellín, especialista React, experto TypeScript, accesibilidad web, WCAG, arquitectura microfrontend",
     "keywords_projects": "proyectos desarrollo web, proyectos React, aplicaciones Next.js, apps TypeScript, Random-Q, proyectos portafolio, showcase desarrollo frontend, aplicaciones web creativas",
     "keywords_contact": "contactar desarrollador frontend, contratar desarrollador React, servicios desarrollo web, desarrollador freelance Medellín, desarrollador remoto, contacto Juan Pablo Jiménez"
+  },
+  "blog": {
+    "title": "Blog",
+    "hero_label": "Última publicación",
+    "hero_read": "Leer artículo",
+    "recent_title": "Publicaciones Recientes",
+    "all_title": "Todas las Publicaciones",
+    "min_read": "min de lectura",
+    "back_to_blog": "Volver al blog",
+    "toc_title": "Estructura",
+    "toc_mobile": "Contenido",
+    "cover_alt": "Imagen de portada de"
   }
 }

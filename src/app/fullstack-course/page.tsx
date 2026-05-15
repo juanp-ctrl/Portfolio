@@ -1,5 +1,5 @@
 'use client'
-import { useTranslations } from 'next-intl'
+import { useTranslations } from '@/context/I18nContext'
 import Header from '@/components/Header/Header'
 import PageTransition from '@/components/PageTransition'
 import Footer from '@/components/Footer'

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { memo, useCallback, useEffect, useMemo, useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import Image from 'next/image'
 
@@ -11,7 +11,7 @@ interface ImageItem {
 
 const imagesLength = 18
 
-export default function Index() {
+function Index() {
   const [mouseCoordinates, setMouseCoordinates] = useState({ x: 0, y: 0 })
   const [lastAddedCoordinates, setLastAddedCoordinates] = useState({
     x: 0,
@@ -19,9 +19,13 @@ export default function Index() {
   }) // Last position where an image was added
   const [images, setImages] = useState<ImageItem[]>([])
   const [imageCounter, setImageCounter] = useState<number>(0)
-  const imagePool = Array.from(
-    { length: imagesLength },
-    (_, i) => `/images/IMG_${i + 1}.webp`,
+  const imagePool = useMemo(
+    () =>
+      Array.from(
+        { length: imagesLength },
+        (_, i) => `/images/trail/IMG_${i + 1}.webp`,
+      ),
+    [],
   )
 
   // Handle mouse movement
@@ -99,7 +103,7 @@ export default function Index() {
 
   return (
     <div
-      className="absolute w-full h-[95vh] overflow-hidden z-[2]"
+      className="absolute w-full h-[calc(95vh-100px)] overflow-hidden z-[2]"
       onMouseMove={handleMouseMovement}
     >
       <AnimatePresence>
@@ -121,7 +125,6 @@ export default function Index() {
               alt="Trail effect"
               width={150}
               height={200}
-              priority
               className="w-full h-full object-cover"
             />
           </motion.div>
@@ -130,3 +133,5 @@ export default function Index() {
     </div>
   )
 }
+
+export default memo(Index)

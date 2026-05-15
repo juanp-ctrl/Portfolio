@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image'
-import { useTranslations, useLocale } from 'next-intl'
+import { useTranslations, useLocale } from '@/context/I18nContext'
 
 interface DownloadButtonProps {
   className?: string

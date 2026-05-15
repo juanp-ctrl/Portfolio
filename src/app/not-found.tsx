@@ -1,27 +1,23 @@
 import type { Metadata } from 'next'
-import { getTranslations } from 'next-intl/server'
-import { getLocaleFromCookie } from '@/lib/metadata'
 import NotFoundClient from '@/components/NotFoundClient'
+import en from '../../messages/en.json'
 
-export async function generateMetadata(): Promise<Metadata> {
-  const locale = await getLocaleFromCookie()
-  const t = await getTranslations({ locale, namespace: '404' })
-
+export function generateMetadata(): Metadata {
   return {
-    title: t('seo_title'),
-    description: t('seo_description'),
+    title: en['404'].seo_title,
+    description: en['404'].seo_description,
     robots: {
-      index: false, // Don't index 404 pages
+      index: false,
       follow: true,
     },
     openGraph: {
-      title: t('seo_title'),
-      description: t('seo_description'),
+      title: en['404'].seo_title,
+      description: en['404'].seo_description,
       url: 'https://www.juanpablojimenez.dev/404',
     },
     twitter: {
-      title: t('seo_title'),
-      description: t('seo_description'),
+      title: en['404'].seo_title,
+      description: en['404'].seo_description,
     },
   }
 }

@@ -71,10 +71,7 @@ export default function CodeBlock({ code, language }: CodeBlockProps) {
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre className={`${className} ${styles.codeContent}`} style={style}>
             {tokens.map((line, lineIndex) => {
-              const { key: _lineKey, ...lineProps } = getLineProps({
-                line,
-                key: lineIndex,
-              })
+              const lineProps = getLineProps({ line })
               return (
                 <div
                   key={lineIndex}
@@ -84,10 +81,7 @@ export default function CodeBlock({ code, language }: CodeBlockProps) {
                   <span className={styles.lineNumber}>{lineIndex + 1}</span>
                   <span className={styles.lineContent}>
                     {line.map((token, tokenIndex) => {
-                      const { key: _tokenKey, ...tokenProps } = getTokenProps({
-                        token,
-                        key: tokenIndex,
-                      })
+                      const tokenProps = getTokenProps({ token })
                       return <span key={tokenIndex} {...tokenProps} />
                     })}
                   </span>

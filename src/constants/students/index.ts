@@ -54,7 +54,7 @@ const studentModules = require.context(
 // Extract student objects from all modules
 export const students: Student[] = studentModules
   .keys()
-  .map((fileName:string) => {
+  .map((fileName: string) => {
     const studentModule = studentModules(fileName) as Record<string, Student>
     // Get the first exported value (the student object)
     const studentKey = Object.keys(studentModule)[0]

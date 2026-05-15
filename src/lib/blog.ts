@@ -54,6 +54,8 @@ export interface BlogBlock {
   // image fields
   src?: string
   alt?: string
+  /** Pixels; set from `![alt](url "640")` when title is a plain number */
+  maxWidthPx?: number
 }
 
 export interface BlogPostFrontmatter {
@@ -200,6 +202,18 @@ function slugifyHeading(text: string): string {
     .trim()
 }
 
+/** Markdown image title used only as max width: `![alt](path "480")` */
+function maxWidthPxFromImageTitle(
+  title: string | null | undefined,
+): number | undefined {
+  if (title == null || title === '') return undefined
+  const t = title.trim()
+  if (!/^\d+$/.test(t)) return undefined
+  const n = Number.parseInt(t, 10)
+  if (!Number.isFinite(n) || n < 48 || n > 1920) return undefined
+  return n
+}
+
 function tableCellToHtml(cell: TableCell, isHeader: boolean): string {
   const tag = isHeader ? 'th' : 'td'
   const content = phrasingToHtml(cell.children as PhrasingContent[])
@@ -262,11 +276,13 @@ export function parsePostToBlocks(content: string): {
         // Check if paragraph is a standalone image
         if (para.children.length === 1 && para.children[0].type === 'image') {
           const img = para.children[0] as Image
+          const maxWidthPx = maxWidthPxFromImageTitle(img.title)
           blocks.push({
             id: makeId(),
             type: 'image',
             src: img.url,
             alt: img.alt ?? '',
+            ...(maxWidthPx != null ? { maxWidthPx } : {}),
           })
           return
         }

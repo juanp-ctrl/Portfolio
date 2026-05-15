@@ -11,6 +11,9 @@ interface BlogContentProps {
   isDark?: boolean
 }
 
+/** Matches `.figure` max-width (36rem @ 16px) for `next/image` sizes */
+const DEFAULT_FIGURE_MAX_WIDTH_PX = 576
+
 export default function BlogContent({
   blocks,
   postSlug,
@@ -81,9 +84,21 @@ export default function BlogContent({
           case 'divider':
             return <hr key={block.id} className={styles.divider} />
 
-          case 'image':
+          case 'image': {
+            const cap =
+              block.maxWidthPx != null
+                ? block.maxWidthPx
+                : DEFAULT_FIGURE_MAX_WIDTH_PX
             return (
-              <figure key={block.id} className={styles.figure}>
+              <figure
+                key={block.id}
+                className={styles.figure}
+                style={
+                  block.maxWidthPx != null
+                    ? { maxWidth: `${block.maxWidthPx}px` }
+                    : undefined
+                }
+              >
                 <Image
                   src={
                     block.src?.startsWith('/')
@@ -91,8 +106,9 @@ export default function BlogContent({
                       : `/images/blog/${postSlug}/${block.src}`
                   }
                   alt={block.alt ?? ''}
-                  width={900}
-                  height={500}
+                  width={1600}
+                  height={1000}
+                  sizes={`(max-width: 640px) 100vw, ${cap}px`}
                   className={styles.figureImg}
                 />
                 {block.alt && (
@@ -102,6 +118,7 @@ export default function BlogContent({
                 )}
               </figure>
             )
+          }
 
           default:
             return null

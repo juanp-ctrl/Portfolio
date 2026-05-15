@@ -33,4 +33,6 @@ echo "Hello, world!"
 
 Images: ![Alt text](/images/blog/your-post-slug/image.webp)
 
+Optional max display width (pixels, 48–1920): ![Alt text](/images/blog/your-post-slug/image.webp "480")
+
 Obsidian wikilinks `![[image.png]]` should be converted to the format above before publishing.

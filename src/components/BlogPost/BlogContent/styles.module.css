@@ -176,7 +176,9 @@
 /* ── Figure / Image ──────────────────────────────────────── */
 
 .figure {
-  margin: 1.75rem 0;
+  margin: 1.75rem auto;
+  max-width: min(100%, 36rem);
+  text-align: center;
 }
 
 .figureImg {
@@ -185,6 +187,7 @@
   border-radius: 12px;
   border: 1px solid #f2df6b;
   display: block;
+  margin-inline: auto;
 }
 
 .figCaption {

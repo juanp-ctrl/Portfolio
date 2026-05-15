@@ -67,8 +67,7 @@ export const paulaCalderon: Student = {
   // ES: Tus enlaces de redes sociales (campos opcionales)
   socials: {
     github: 'https://github.com/paucq',
-    linkedin:
-      'https://www.linkedin.com/in/paula-andrea-calderon-quintero-40759226b/',
+    linkedin: 'https://www.linkedin.com/in/paula-andrea-calderon-quintero-40759226b/',
     // instagram: '', // Optional / Opcional
   },
 }

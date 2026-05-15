@@ -19,11 +19,10 @@ Welcome, students! This guide will help you make your first open-source contribu
 1. Fork → Clone → Create branch (`add-student-your-name`)
 2. Copy `src/constants/students/juan-pablo-jimenez.ts` → Rename to `your-username.ts`
 3. Edit your file with your info
-4. Add import and export in `src/constants/students/index.ts`
-5. Create folder: `public/fullstack-course/students/your-username/`
-6. Add your `profile.webp` image
-7. Test with `pnpm dev`
-8. Commit → Push → Open PR to `develop` branch
+4. Create folder: `public/fullstack-course/students/your-username/`
+5. Add your `profile.webp` image
+6. Test with `pnpm dev`
+7. Commit → Push → Open PR to `develop` branch
 
 ---
 
@@ -139,29 +138,7 @@ export const yourUsername: Student = {
 - Be honest about your interests/skills
 - At minimum, provide your GitHub link
 
-#### 5.4: Add Your Import to the Index File
-
-Open `src/constants/students/index.ts` and:
-
-1. **Add your import** at the top with the other imports:
-
-```typescript
-import { juanPabloJimenez } from './juan-pablo-jimenez'
-import { yourUsername } from './your-username' // Add this line
-```
-
-Example: `import { mariaGarcia } from './maria-garcia'`
-
-2. **Add your profile to the students array:**
-
-```typescript
-export const students = [
-  juanPabloJimenez, // Professor
-  yourUsername, // Add your profile here
-] as const
-```
-
-Example: `mariaGarcia,`
+**Important:** Your file will be automatically discovered! You don't need to edit `index.ts` or any other files. Just create your profile file with the correct naming convention and it will be automatically imported and displayed.
 
 ### Step 6: Add Your Profile Image
 
@@ -226,8 +203,9 @@ pnpm dev
 
 **Name not appearing in the list?**
 
-- Did you add your import to `index.ts`?
-- Did you add your profile to the `students` array?
+- Check that your filename matches the pattern: `your-username.ts` (lowercase, hyphens)
+- Verify your file is in `src/constants/students/` directory
+- Make sure your file exports a valid Student object
 - Check for TypeScript errors in the terminal
 
 **Console errors?**
@@ -326,7 +304,7 @@ portfolio/
 ├── src/
 │   ├── constants/
 │   │   └── students/
-│   │       ├── index.ts                    ← Add your import here
+│   │       ├── index.ts                    ← Auto-imports all files (don't edit!)
 │   │       ├── types.ts                    ← Type definitions (don't change)
 │   │       ├── juan-pablo-jimenez.ts       ← Template (copy this)
 │   │       └── your-username.ts            ← Your file goes here
@@ -379,7 +357,7 @@ git add .
 git rebase --continue
 ```
 
-**Better approach:** Create your own file! That's why we use individual files instead of one shared array.
+**Better approach:** Create your own file! That's why we use individual files with automatic discovery instead of manual registration. The system automatically imports all student files, eliminating merge conflicts.
 
 ---
 

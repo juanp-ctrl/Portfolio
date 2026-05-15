@@ -160,21 +160,7 @@ export const yourUsername: Student = {
 }
 ```
 
-5. Open `src/constants/students/index.ts`
-6. Add your import at the top (use camelCase for variable name):
-
-```typescript
-import { yourUsername } from './your-username' // e.g., import { mariaGarcia } from './maria-garcia'
-```
-
-7. Add your profile to the `students` array:
-
-```typescript
-export const students = [
-  juanPabloJimenez, // Professor
-  yourUsername, // Add your imported profile here
-] as const
-```
+**That's it!** Your file will be automatically discovered and imported. You don't need to edit `index.ts` or any other files. The system uses webpack's `require.context()` to dynamically import all student profile files.
 
 #### 6. Create Your Profile Folder
 
@@ -254,7 +240,6 @@ git push origin add-student-your-name
 
 - Only modify files in the `fullstack-course` section
 - Create your own file in `src/constants/students/your-username.ts`
-- Add your import and export in `src/constants/students/index.ts`
 - Include a profile image in `public/fullstack-course/students/your-username/`
 - Test your changes locally before submitting
 - Write a clear commit message
@@ -271,7 +256,7 @@ git push origin add-student-your-name
 
 - Check the configuration template: `src/constants/students/juan-pablo-jimenez.ts`
 - Review the blueprint profile page: `src/app/fullstack-course/students/juan-pablo-jimenez/page.tsx`
-- Look at the index file structure: `src/constants/students/index.ts`
+- Read the detailed contributing guide: `CONTRIBUTING.md`
 - Visit the course page: [juanpablojimenez.dev/fullstack-course](https://www.juanpablojimenez.dev/fullstack-course)
 - Ask questions in your pull request
 

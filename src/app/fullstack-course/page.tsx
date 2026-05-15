@@ -259,7 +259,7 @@ export default function FullstackCoursePage() {
 
             <div className="flex justify-center">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((step) => {
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((step) => {
                   const isChecked = checkedSteps.has(step)
                   return (
                     <motion.div

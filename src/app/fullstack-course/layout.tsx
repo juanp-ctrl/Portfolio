@@ -1,26 +1,26 @@
 import type { Metadata } from 'next'
+import type React from 'react'
+import { generatePageMetadata } from '@/lib/metadata'
+import en from '../../../messages/en.json'
 
-export const metadata: Metadata = {
-  title: 'Fullstack Course | Juan Pablo Jiménez',
-  description:
-    'Learn fullstack development by contributing to open source. Student contributions and course resources for web development education.',
-  keywords: [
-    'fullstack course',
-    'web development course',
-    'git tutorial',
-    'github tutorial',
-    'open source contribution',
-    'learn to code',
-    'react course',
-    'nextjs course',
-    'typescript course',
-  ],
-  openGraph: {
-    title: 'Fullstack Development Course | Juan Pablo Jiménez',
-    description:
-      'Learn by contributing to real projects. Open-source education for aspiring fullstack developers.',
-    type: 'website',
-  },
+export function generateMetadata(): Metadata {
+  return generatePageMetadata({
+    title: en.seo.fullstack_course_title,
+    description: en.seo.fullstack_course_description,
+    path: '/fullstack-course',
+    ogTitle: en.seo.fullstack_course_title,
+    keywords: [
+      'fullstack course',
+      'web development course',
+      'git tutorial',
+      'github tutorial',
+      'open source contribution',
+      'learn to code',
+      'react course',
+      'nextjs course',
+      'typescript course',
+    ],
+  })
 }
 
 export default function FullstackCourseLayout({

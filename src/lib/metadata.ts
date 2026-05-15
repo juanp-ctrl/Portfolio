@@ -22,7 +22,7 @@ export function generatePageMetadata({
   const ogImageUrl = `${baseUrl}/images/OG_brand.png`
 
   return {
-    title,
+    title: { absolute: title },
     description,
     keywords: keywords || [
       'frontend developer',

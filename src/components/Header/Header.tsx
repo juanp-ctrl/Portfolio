@@ -7,11 +7,12 @@ import { AnimatePresence } from 'motion/react'
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
 import Image from 'next/image'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { useTranslations, useLocale } from '@/context/I18nContext'
 import useMedia from '@/hooks/useMedia'
 import { useTransition } from '@/context/TransitionContext'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
+import blogIndex from '@/constants/blogIndex'
 import { gsap } from 'gsap'
 
 interface HeaderProps {
@@ -22,6 +23,7 @@ export default function Header({ variant = 'light' }: HeaderProps) {
   const t = useTranslations('common')
   const locale = useLocale()
   const pathname = usePathname()
+  const router = useRouter()
   const [isMenuActive, setIsMenuActive] = useState(false)
   const menuButton = useRef(null)
   const { isMobile } = useMedia()
@@ -34,6 +36,16 @@ export default function Header({ variant = 'light' }: HeaderProps) {
   const handleChangingLng = () => {
     const newLanguage = locale === 'en' ? 'es' : 'en'
     changeLanguage(newLanguage)
+
+    const enBlogMatch = pathname.match(/^\/blog\/([^/]+)$/)
+    const esBlogMatch = pathname.match(/^\/blog\/es\/(.+)$/)
+    const slug = enBlogMatch?.[1] ?? esBlogMatch?.[1]
+    const post = slug ? blogIndex.en.find((p) => p.slug === slug) : null
+
+    if (post?.hasEsTranslation) {
+      if (newLanguage === 'es' && enBlogMatch) router.push(`/blog/es/${slug}`)
+      else if (newLanguage === 'en' && esBlogMatch) router.push(`/blog/${slug}`)
+    }
   }
 
   useEffect(() => {

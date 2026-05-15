@@ -86,7 +86,7 @@ export default function About() {
         <Text phrase={t('about_me_3')} customStyle="mb-10" />
         <Text phrase={t('about_me_4')} customStyle="mb-10" />
         <Image
-          src="/images/IMG_18.webp"
+          src="/images/trail/IMG_18.webp"
           alt="Medellin city"
           width={300}
           height={400}

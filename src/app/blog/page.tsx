@@ -2,7 +2,7 @@
 import Header from '@/components/Header/Header'
 import PageTransition from '@/components/PageTransition'
 import Footer from '@/components/Footer'
-import { useTranslations } from '@/context/I18nContext'
+import { useTranslations, useLocale } from '@/context/I18nContext'
 import Link from 'next/link'
 import Image from 'next/image'
 import blogIndex from '@/constants/blogIndex'
@@ -18,8 +18,13 @@ function formatDate(dateStr: string): string {
 
 export default function Blog() {
   const t = useTranslations('blog')
+  const locale = useLocale()
+  const posts = blogIndex[locale] ?? blogIndex.en
 
-  const [featured, ...rest] = blogIndex
+  const getPostLink = (slug: string) =>
+    locale === 'es' ? `/blog/es/${slug}` : `/blog/${slug}`
+
+  const [featured, ...rest] = posts
   const recentPosts = rest.slice(0, 3)
   const allPosts = rest.slice(3)
 
@@ -75,7 +80,10 @@ export default function Blog() {
               {featured.readingTime} {t('min_read')}
             </span>
           </div>
-          <Link href={`/blog/${featured.slug}`} className={styles.heroReadLink}>
+          <Link
+            href={getPostLink(featured.slug)}
+            className={styles.heroReadLink}
+          >
             {t('hero_read')} →
           </Link>
         </section>
@@ -100,7 +108,7 @@ export default function Blog() {
                   <p className={styles.cardCategory}>{post.category}</p>
                   <h3>
                     <Link
-                      href={`/blog/${post.slug}`}
+                      href={getPostLink(post.slug)}
                       className={styles.cardTitle}
                     >
                       {post.title}
@@ -149,7 +157,7 @@ export default function Blog() {
                       <span>{formatDate(recentPosts[2].date)}</span>
                     </div>
                     <Link
-                      href={`/blog/${recentPosts[2].slug}`}
+                      href={getPostLink(recentPosts[2].slug)}
                       className={styles.stripTitle}
                     >
                       {recentPosts[2].title}
@@ -166,7 +174,7 @@ export default function Blog() {
                       <span>{formatDate(post.date)}</span>
                     </div>
                     <Link
-                      href={`/blog/${post.slug}`}
+                      href={getPostLink(post.slug)}
                       className={styles.stripTitle}
                     >
                       {post.title}

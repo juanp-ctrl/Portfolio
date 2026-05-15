@@ -21,7 +21,9 @@ import type {
   Image,
 } from 'mdast'
 
-const POSTS_DIRECTORY = path.join(process.cwd(), 'content/posts')
+function getPostsDir(locale: 'en' | 'es' = 'en'): string {
+  return path.join(process.cwd(), 'content', 'posts', locale)
+}
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -351,17 +353,48 @@ export function parsePostToBlocks(content: string): {
 
 // ─── File system helpers ──────────────────────────────────────────────────────
 
-export function getPostSlugs(): string[] {
-  if (!fs.existsSync(POSTS_DIRECTORY)) return []
+export function getPostSlugs(locale: 'en' | 'es' = 'en'): string[] {
+  const dir = getPostsDir(locale)
+  if (!fs.existsSync(dir)) return []
   return fs
-    .readdirSync(POSTS_DIRECTORY)
+    .readdirSync(dir)
     .filter((name) => name.endsWith('.md') && !name.startsWith('_'))
-    .map((name) => name.replace(/\.md$/, ''))
+    .map((name) => {
+      const fullPath = path.join(dir, name)
+      const raw = fs.readFileSync(fullPath, 'utf8')
+      const { data } = matter(raw)
+      const fm = data as Partial<BlogPostFrontmatter>
+      if (fm.slug && typeof fm.slug === 'string') return fm.slug
+      return name.replace(/\.md$/i, '')
+    })
 }
 
-export function getPostBySlug(slug: string): BlogPostData | null {
-  const filePath = path.join(POSTS_DIRECTORY, `${slug}.md`)
-  if (!fs.existsSync(filePath)) return null
+function resolvePostFilePath(slug: string, dir: string): string | null {
+  if (!fs.existsSync(dir)) return null
+  const direct = path.join(dir, `${slug}.md`)
+  if (fs.existsSync(direct)) return direct
+  const slugLower = slug.toLowerCase()
+  for (const name of fs.readdirSync(dir)) {
+    if (!name.endsWith('.md') || name.startsWith('_')) continue
+    const fullPath = path.join(dir, name)
+    const base = name.replace(/\.md$/i, '')
+    if (base.toLowerCase() === slugLower) return fullPath
+    const raw = fs.readFileSync(fullPath, 'utf8')
+    const { data } = matter(raw)
+    const fm = data as Partial<BlogPostFrontmatter>
+    if (fm.slug === slug) return fullPath
+  }
+  return null
+}
+
+export function getPostBySlug(
+  slug: string,
+  locale: 'en' | 'es' = 'en',
+): BlogPostData | null {
+  const filePath =
+    resolvePostFilePath(slug, getPostsDir(locale)) ??
+    resolvePostFilePath(slug, getPostsDir('en'))
+  if (!filePath) return null
 
   const fileContents = fs.readFileSync(filePath, 'utf8')
   const { data, content } = matter(fileContents)

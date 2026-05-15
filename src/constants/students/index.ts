@@ -41,6 +41,27 @@ export type { Student, StudentSocials } from './types'
 // Import all student profiles
 // EN: Add your import here / ES: Agrega tu import aquí
 import { juanPabloJimenez } from './juan-pablo-jimenez'
+import { FelipeBeltran } from './1pipe1'
+import { MCamilaHolguin } from './CamilaHolguin'
+import { RobinTabordaGirado } from './Robin-Taborda'
+import { juanSebastianGaviria } from './Sebastian-Gaviria'
+import { alanmonroy } from './alan-monroy'
+import { alejandraMadrid } from './alejandra-madrid'
+import { alejandromurillo } from './alejandro-murillo'
+import { anyelohoyos } from './anyelo-hoyos'
+import { emmanuelPerezCastrillon } from './emmanuel-perez'
+import { JaimeLondonoSaldarriaga } from './jaime-londono-saldarriaga'
+import { jeiksonGomez } from './jeikson-gomez'
+import { juanFernandoDavid } from './juan-fernando-david'
+import { juanjosetobon } from './juan-jose-tobon'
+import { juanjosevillegas } from './juan-jose-villegas'
+import { julianandrescorrea } from './julian-andres-correa'
+import { juanPabloJimenez as marcelaQuintero } from './marcela-quintero'
+import { mariaPalacioD } from './mariaPalacioD'
+import { mateoHenao } from './mateohenao'
+import { paulaCalderon } from './paula-calderon'
+import { sebastianPerez } from './sesasan'
+import { yesicaGonzalez } from './yesica-maria-gonzalez-v'
 
 /**
  * Students Array
@@ -53,8 +74,28 @@ import { juanPabloJimenez } from './juan-pablo-jimenez'
  */
 export const students = [
   juanPabloJimenez, // Professor / Profesor
+  FelipeBeltran,
+  MCamilaHolguin,
+  RobinTabordaGirado,
+  juanSebastianGaviria,
+  alanmonroy,
+  alejandraMadrid,
+  alejandromurillo,
+  anyelohoyos,
+  emmanuelPerezCastrillon,
+  JaimeLondonoSaldarriaga,
+  jeiksonGomez,
+  juanFernandoDavid,
+  juanjosetobon,
+  juanjosevillegas,
+  julianandrescorrea,
+  marcelaQuintero,
+  mariaPalacioD,
+  mateoHenao,
+  paulaCalderon,
+  sebastianPerez,
+  yesicaGonzalez,
   // EN: Add your profile here / ES: Agrega tu perfil aquí
-  // Example / Ejemplo: mariaGarcia,
 ] as const
 
 /**

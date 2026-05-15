@@ -79,7 +79,9 @@
     "tech_highlight_rq_2": "Firebase Firestore: Utilizado como base de datos backend para gestionar el sistema de likes y almacenar datos de preguntas de manera eficiente.",
     "tech_highlight_rq_3": "Hosting de Firebase: La aplicación se implementó con la robusta solución de hosting de Firebase, asegurando tiempos de carga rápidos y escalabilidad.",
     "tech_highlight_rq_4": "Pipeline CI/CD: Los flujos de trabajo automatizados mediante GitHub Actions agilizan el proceso de desarrollo e implementación, permitando iteraciones rápidas y entregas consistentes.",
-    "name_soon": "Pronto..."
+    "name_soon": "Pronto...",
+    "previous_project": "Proyecto anterior",
+    "next_project": "Siguiente proyecto"
   },
   "404": {
     "404_title": "Houston, tenemos un problema!",

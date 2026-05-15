@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './styles.module.css'
 import navItems from '@/constants/routes'
-import { useTranslations } from 'next-intl'
+import { useTranslations } from '@/context/I18nContext'
 import { socials } from '@/constants/socials'
 import { useTransition } from '@/context/TransitionContext'
 

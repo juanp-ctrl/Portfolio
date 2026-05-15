@@ -1,20 +1,5 @@
-import { cookies } from 'next/headers'
 import { Metadata } from 'next'
 
-/**
- * Reads the locale from the NEXT_LOCALE cookie
- * Returns 'en' as default if cookie is not set
- */
-export async function getLocaleFromCookie(): Promise<'en' | 'es'> {
-  const cookieStore = await cookies()
-  const locale = cookieStore.get('NEXT_LOCALE')?.value
-  return (locale === 'es' ? 'es' : 'en') as 'en' | 'es'
-}
-
-/**
- * Generates page-specific metadata with locale awareness
- * Ensures consistent metadata structure across all pages
- */
 interface PageMetadataOptions {
   title: string
   description: string

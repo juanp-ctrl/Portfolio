@@ -4,7 +4,7 @@ import PageTransition from '@/components/PageTransition'
 import { motion, Variants } from 'motion/react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useTranslations } from 'next-intl'
+import { useTranslations } from '@/context/I18nContext'
 import Text from '@/components/Text'
 
 export default function NotFoundClient() {
@@ -44,7 +44,7 @@ export default function NotFoundClient() {
         >
           <div className="max-w-2xl mx-auto">
             <Image
-              src="/images/free_astronaut.png"
+              src="/images/free_astronaut.webp"
               alt="Lost astronaut"
               width={300}
               height={300}

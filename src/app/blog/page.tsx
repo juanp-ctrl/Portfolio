@@ -2,7 +2,7 @@
 import Header from '@/components/Header/Header'
 import PageTransition from '@/components/PageTransition'
 import Footer from '@/components/Footer'
-import { useTranslations } from 'next-intl'
+import { useTranslations } from '@/context/I18nContext'
 import Link from 'next/link'
 import Image from 'next/image'
 import blogIndex from '@/constants/blogIndex'

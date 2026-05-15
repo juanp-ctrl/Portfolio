@@ -28,7 +28,7 @@ export default function Index() {
   return (
     <div
       ref={cursorRef}
-      className="fixed w-[30px] h-[30px] bg-[url('/images/moon.png')] bg-no-repeat bg-center bg-contain pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-[transform,width,height] duration-200 ease-out max-md:hidden"
+      className="fixed w-[30px] h-[30px] bg-[url('/images/moon.webp')] bg-no-repeat bg-center bg-contain pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-[transform,width,height] duration-200 ease-out max-md:hidden"
     />
   )
 }

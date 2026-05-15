@@ -1,4 +1,4 @@
-import { useTranslations } from 'next-intl'
+import { useTranslations } from '@/context/I18nContext'
 
 interface Friend {
   name: string

@@ -18,7 +18,7 @@ import Image from 'next/image'
 import Footer from '@/components/Footer'
 import useMedia from '@/hooks/useMedia'
 import { motion, Variants } from 'motion/react'
-import { useTranslations } from 'next-intl'
+import { useTranslations } from '@/context/I18nContext'
 
 export default function Projects() {
   const { isMobile } = useMedia()

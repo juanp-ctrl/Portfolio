@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import type React from 'react'
-import { NextIntlClientProvider } from 'next-intl'
-import { getMessages } from 'next-intl/server'
+import { I18nProvider } from '@/context/I18nContext'
 import '@/styles/globals.css'
 import { TransitionProvider } from '@/context/TransitionContext'
 import CustomCursor from '@/components/Cursor'
@@ -22,13 +21,11 @@ export const viewport: Viewport = {
   themeColor: '#1e1e1e',
 }
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const messages = await getMessages()
-
   return (
     <html
       lang="en"
@@ -52,14 +49,14 @@ export default async function RootLayout({
         />
       </head>
       <body className="bg-white">
-        <NextIntlClientProvider messages={messages}>
+        <I18nProvider>
           <TransitionProvider>
             <GoogleAnalytics />
             <CustomCursor />
             <TransitionWrapper>{children}</TransitionWrapper>
             <CookieConsent />
           </TransitionProvider>
-        </NextIntlClientProvider>
+        </I18nProvider>
       </body>
     </html>
   )

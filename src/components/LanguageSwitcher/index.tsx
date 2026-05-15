@@ -1,37 +1,27 @@
 'use client'
-import { useTransition } from 'react'
-import { useRouter } from 'next/navigation'
+import { useI18n } from '@/context/I18nContext'
 
 interface LanguageSwitcherProps {
-  currentLocale: string
+  currentLocale?: string
   onLanguageChange?: () => void
 }
 
 export default function LanguageSwitcher({
-  currentLocale,
   onLanguageChange,
 }: LanguageSwitcherProps) {
-  const router = useRouter()
-  const [isPending, startTransition] = useTransition()
+  const { locale, setLocale } = useI18n()
 
-  const changeLanguage = (newLocale: string) => {
-    startTransition(() => {
-      // Set cookie
-      document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000; SameSite=Lax`
-
-      // Refresh to apply new locale
-      router.refresh()
-
-      if (onLanguageChange) {
-        onLanguageChange()
-      }
-    })
+  const changeLanguage = (newLocale: 'en' | 'es') => {
+    setLocale(newLocale)
+    if (onLanguageChange) {
+      onLanguageChange()
+    }
   }
 
   return {
     changeLanguage,
-    isPending,
-    currentLocale,
+    isPending: false,
+    currentLocale: locale,
     availableLocales: ['en', 'es'] as const,
   }
 }

@@ -7,7 +7,7 @@ import PageTransition from '@/components/PageTransition'
 import Footer from '@/components/Footer'
 import BlogContent from '@/components/BlogPost/BlogContent'
 import TableOfContents from '@/components/BlogPost/TableOfContents'
-import { useTranslations } from 'next-intl'
+import { useTranslations } from '@/context/I18nContext'
 import type { BlogPostData } from '@/lib/blog'
 import styles from './styles.module.css'
 

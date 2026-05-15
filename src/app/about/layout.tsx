@@ -1,20 +1,16 @@
 import type { Metadata } from 'next'
 import type React from 'react'
-import { getTranslations } from 'next-intl/server'
-import { getLocaleFromCookie, generatePageMetadata } from '@/lib/metadata'
+import { generatePageMetadata } from '@/lib/metadata'
+import en from '../../../messages/en.json'
 
-export async function generateMetadata(): Promise<Metadata> {
-  const locale = await getLocaleFromCookie()
-  const t = await getTranslations({ locale, namespace: 'seo' })
-  const aboutT = await getTranslations({ locale, namespace: 'about' })
-
+export function generateMetadata(): Metadata {
   return generatePageMetadata({
-    title: t('about_title'),
-    description: aboutT('about_description'),
+    title: en.seo.about_title,
+    description: en.about.about_description,
     path: '/about',
-    ogTitle: t('about_og_title'),
-    ogDescription: aboutT('about_description'),
-    keywords: t('keywords_about').split(', '),
+    ogTitle: en.seo.about_og_title,
+    ogDescription: en.about.about_description,
+    keywords: en.seo.keywords_about.split(', '),
   })
 }
 

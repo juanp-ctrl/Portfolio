@@ -5,7 +5,7 @@ import Text from '@/components/Text'
 import Footer from '@/components/Footer'
 import { motion, Variants } from 'motion/react'
 import Image from 'next/image'
-import { useTranslations } from 'next-intl'
+import { useTranslations } from '@/context/I18nContext'
 
 export default function Contact() {
   const t = useTranslations('contact')
@@ -78,7 +78,7 @@ export default function Contact() {
                 customStyle="text-lg mb-8"
               />
               <Image
-                src="/images/spaceship.png"
+                src="/images/spaceship.webp"
                 alt="Spaceship ready to connect"
                 width={200}
                 height={200}

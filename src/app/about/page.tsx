@@ -7,7 +7,7 @@ import styles from './styles.module.css'
 import Image from 'next/image'
 import { motion, useScroll, useTransform, Variants } from 'motion/react'
 import TrailImages from '@/components/TrailImages'
-import { useTranslations } from 'next-intl'
+import { useTranslations } from '@/context/I18nContext'
 
 export default function About() {
   const t = useTranslations('about')
@@ -74,7 +74,7 @@ export default function About() {
             {...anim(shipVariants)}
           >
             <Image
-              src="/images/spaceship.png"
+              src="/images/spaceship.webp"
               alt="free astronaut"
               width={200}
               height={400}

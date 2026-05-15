@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { motion, useInView } from 'motion/react'
 import { useRef } from 'react'
-import { useTranslations } from 'next-intl'
+import { useTranslations } from '@/context/I18nContext'
 import { useTransition } from '@/context/TransitionContext'
 
 export default function Index() {

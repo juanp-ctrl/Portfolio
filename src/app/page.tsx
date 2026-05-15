@@ -7,7 +7,7 @@ import PageTransition from '@/components/PageTransition'
 import Text from '@/components/Text'
 import Header from '@/components/Header/Header'
 import dynamic from 'next/dynamic'
-import { useTranslations } from 'next-intl'
+import { useTranslations } from '@/context/I18nContext'
 
 // Dynamic imports for heavy components
 const BalloonsButton = dynamic(() => import('@/components/BalloonsButton'), {

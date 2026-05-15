@@ -1,7 +1,7 @@
 'use client'
 import type React from 'react'
 import { useEffect, useLayoutEffect, useRef } from 'react'
-import { useTranslations } from 'next-intl'
+import { useTranslations } from '@/context/I18nContext'
 import { useTransition } from '@/context/TransitionContext'
 import { gsap } from 'gsap'
 

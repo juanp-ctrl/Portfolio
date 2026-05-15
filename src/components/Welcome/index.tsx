@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform, Variants } from 'motion/react'
-import { useTranslations } from 'next-intl'
+import { useTranslations } from '@/context/I18nContext'
 import { Suspense, useState } from 'react'
 import Image from 'next/image'
 import Galaxy from '@/components/Galaxy'
@@ -94,7 +94,7 @@ export default function Index() {
           {...anim(astronautVariants)}
         >
           <Image
-            src="/images/free_astronaut.png"
+            src="/images/free_astronaut.webp"
             alt="free astronaut"
             priority
             width={208}

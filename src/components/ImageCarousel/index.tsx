@@ -30,7 +30,7 @@ export default function ImageCarousel({
     if (images.length <= 1) return // No hace falta si solo hay una imagen
 
     const interval = setInterval(() => {
-      goToNext()
+      setCurrentIndex((prev) => (prev + 1) % images.length)
     }, autoPlayInterval)
 
     // Limpia el intervalo cuando el componente se desmonta

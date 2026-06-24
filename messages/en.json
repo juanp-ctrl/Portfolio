@@ -81,7 +81,19 @@
     "tech_highlight_rq_4": "CI/CD Pipeline: Automated workflows via GitHub Actions streamline the development and deployment process, enabling rapid iteration and consistent delivery.",
     "name_soon": "Coming soon...",
     "previous_project": "Previous project",
-    "next_project": "Next project"
+    "next_project": "Next project",
+    "card_desc_random_q": "An interactive app that generates random questions to spark meaningful conversations across four categories. Features community submissions, a like system, EN/ES support, and MercadoPago donations.",
+    "card_desc_turpial": "A bilingual platform connecting Colombian nonprofits with donors and volunteers through rich org profiles, smart cause discovery, secure payments, and gamified engagement with badges and tiers.",
+    "card_desc_chacal": "Website for a sustainable design studio in Argentine Patagonia, showcasing purpose-driven branding, sustainability consulting, and a triple-impact philosophy. Built with Next.js 16 and Tailwind CSS 4.",
+    "card_desc_invecar": "E-commerce catalog and quotation platform for a Colombian industrial supplier. Browse by sector, request quotes via WhatsApp, and sync inventory automatically with Alegra accounting software.",
+    "card_desc_wedding_aa": "A custom wedding site where guests RSVP and explore every event detail, while the couple tracks responses, song picks, and attendance from a private dashboard with reminders.",
+    "card_desc_portfolio": "My personal portfolio built with Next.js 16, React 19, and TypeScript. Featuring smooth GSAP and Framer Motion transitions, full EN/ES support, a custom cursor, and PWA capabilities.",
+    "card_tagline_random_q": "Conversation starter powered by random questions",
+    "card_tagline_turpial": "Connecting nonprofits with donors and volunteers",
+    "card_tagline_chacal": "Sustainable design studio in Patagonia",
+    "card_tagline_invecar": "Industrial e-commerce and quotation platform",
+    "card_tagline_wedding_aa": "Custom wedding site with RSVP and dashboard",
+    "card_tagline_portfolio": "Personal portfolio with creative interactions"
   },
   "404": {
     "404_title": "Houston, we have a problem!",

@@ -81,7 +81,19 @@
     "tech_highlight_rq_4": "Pipeline CI/CD: Los flujos de trabajo automatizados mediante GitHub Actions agilizan el proceso de desarrollo e implementación, permitando iteraciones rápidas y entregas consistentes.",
     "name_soon": "Pronto...",
     "previous_project": "Proyecto anterior",
-    "next_project": "Siguiente proyecto"
+    "next_project": "Siguiente proyecto",
+    "card_desc_random_q": "Una app interactiva que genera preguntas aleatorias para conversaciones significativas en cuatro categorías. Incluye preguntas de la comunidad, sistema de likes, soporte EN/ES y donaciones con MercadoPago.",
+    "card_desc_turpial": "Una plataforma bilingüe que conecta ONGs colombianas con donantes y voluntarios mediante perfiles enriquecidos, descubrimiento inteligente de causas, pagos seguros y engagement gamificado con insignias.",
+    "card_desc_chacal": "Sitio web para un estudio de diseño sostenible en la Patagonia argentina, con branding de propósito, consultoría en sostenibilidad y filosofía de triple impacto. Hecho con Next.js 16 y Tailwind CSS 4.",
+    "card_desc_invecar": "Catálogo e-commerce y plataforma de cotización para un proveedor industrial colombiano. Explora por sector, solicita cotizaciones por WhatsApp y sincroniza inventario automáticamente con Alegra.",
+    "card_desc_wedding_aa": "Un sitio de boda personalizado donde los invitados confirman asistencia y exploran los detalles del evento, mientras la pareja gestiona respuestas, canciones y asistencia desde un panel privado.",
+    "card_desc_portfolio": "Mi portafolio personal hecho con Next.js 16, React 19 y TypeScript. Con transiciones fluidas GSAP y Framer Motion, soporte completo EN/ES, cursor personalizado y capacidades PWA.",
+    "card_tagline_random_q": "Generador de conversaciones con preguntas aleatorias",
+    "card_tagline_turpial": "Conectando ONGs con donantes y voluntarios",
+    "card_tagline_chacal": "Estudio de diseño sostenible en la Patagonia",
+    "card_tagline_invecar": "E-commerce industrial y plataforma de cotización",
+    "card_tagline_wedding_aa": "Sitio de boda con RSVP y panel de gestión",
+    "card_tagline_portfolio": "Portafolio personal con interacciones creativas"
   },
   "404": {
     "404_title": "Houston, tenemos un problema!",

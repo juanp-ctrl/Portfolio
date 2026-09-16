@@ -1,10 +1,5 @@
 export type CodeLanguage =
-  | 'javascript'
-  | 'jsx'
-  | 'typescript'
-  | 'tsx'
-  | 'html'
-  | 'css'
+  'javascript' | 'jsx' | 'typescript' | 'tsx' | 'html' | 'css'
 
 export interface NoteBlock {
   id: string

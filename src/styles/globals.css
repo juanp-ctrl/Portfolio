@@ -17,6 +17,17 @@ body {
   scroll-behavior: smooth;
 }
 
+/* Spanish copy is applied after hydration. Keep the English HTML hidden
+   until that snapshot is ready so the first paint is not the wrong language. */
+html[data-locale='es']:not([data-locale-ready]) body {
+  visibility: hidden;
+}
+
+/* Return visits skip the home intro. The static HTML still contains it. */
+html[data-skip-intro] [data-home-intro] {
+  display: none !important;
+}
+
 h1 {
   font-family:
     var(--font-libre-baskerville), 'Libre Baskerville', Georgia, serif;

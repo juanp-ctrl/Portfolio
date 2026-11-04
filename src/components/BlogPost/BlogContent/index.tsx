@@ -111,9 +111,19 @@ export default function BlogContent({
                   sizes={`(max-width: 640px) 100vw, ${cap}px`}
                   className={styles.figureImg}
                 />
-                {block.alt && (
+                {(block.alt || block.captionLink) && (
                   <figcaption className={styles.figCaption}>
                     {block.alt}
+                    {block.alt && block.captionLink && ' · '}
+                    {block.captionLink && (
+                      <a
+                        href={block.captionLink.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {block.captionLink.text}
+                      </a>
+                    )}
                   </figcaption>
                 )}
               </figure>

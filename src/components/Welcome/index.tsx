@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform, Variants } from 'motion/react'
 import { useTranslations } from '@/context/I18nContext'
 import { Suspense, useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import Galaxy from '@/components/Galaxy'
 import styles from './styles.module.css'
 
@@ -53,6 +54,15 @@ export default function Index() {
     },
   }
 
+  const ctasVariants: Variants = {
+    initial: { y: 20, opacity: 0 },
+    enter: {
+      y: 0,
+      opacity: 1,
+      transition: { delay: 1.8, duration: 0.8, ease: [0.45, 0, 0.55, 1] },
+    },
+  }
+
   return (
     <Suspense fallback={<div>...</div>}>
       <motion.div className={styles['main-content']} {...anim(loadMainContent)}>
@@ -83,6 +93,20 @@ export default function Index() {
           <div className={`${styles['role-text']}`}>
             <p>{isClient ? t('dev_role') : '...'}</p>
           </div>
+          <motion.div className={styles['hero-ctas']} {...anim(ctasVariants)}>
+            <Link
+              href="/projects"
+              className={`${styles['cta']} ${styles['cta-primary']} rounded-lg bg-yellow-primary px-4 py-2 font-libre text-lg italic text-black-secondary md:px-5 md:py-3 md:text-2xl`}
+            >
+              {isClient ? t('cta_projects') : '...'}
+            </Link>
+            <Link
+              href="/blog"
+              className={`${styles['cta']} ${styles['cta-secondary']} rounded-lg border border-white-primary/25 bg-black-secondary px-4 py-2 font-libre text-lg italic text-white-primary hover:border-white-primary/60 md:px-5 md:py-3 md:text-2xl`}
+            >
+              {isClient ? t('cta_blog') : '...'}
+            </Link>
+          </motion.div>
         </div>
       </motion.div>
       <div className="flex justify-center">

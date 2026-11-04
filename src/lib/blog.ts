@@ -56,6 +56,8 @@ export interface BlogBlock {
   alt?: string
   /** Pixels; set from `![alt](url "640")` when title is a plain number */
   maxWidthPx?: number
+  /** Link shown next to the caption; set from a link on the line after the image */
+  captionLink?: { href: string; text: string }
 }
 
 export interface BlogPostFrontmatter {
@@ -273,9 +275,21 @@ export function parsePostToBlocks(content: string): {
     switch (node.type) {
       case 'paragraph': {
         const para = node as Paragraph
-        // Check if paragraph is a standalone image
-        if (para.children.length === 1 && para.children[0].type === 'image') {
-          const img = para.children[0] as Image
+        // Check if paragraph is a standalone image, optionally followed by a
+        // caption link on the next line: ![alt](src)\n[text](url)
+        const [first, ...rest] = para.children
+        const restNodes = rest.filter(
+          (n) => !(n.type === 'text' && n.value.trim() === ''),
+        )
+        const captionNode =
+          restNodes.length === 1 && restNodes[0].type === 'link'
+            ? restNodes[0]
+            : undefined
+        if (
+          first?.type === 'image' &&
+          (restNodes.length === 0 || captionNode)
+        ) {
+          const img = first as Image
           const maxWidthPx = maxWidthPxFromImageTitle(img.title)
           blocks.push({
             id: makeId(),
@@ -283,6 +297,16 @@ export function parsePostToBlocks(content: string): {
             src: img.url,
             alt: img.alt ?? '',
             ...(maxWidthPx != null ? { maxWidthPx } : {}),
+            ...(captionNode
+              ? {
+                  captionLink: {
+                    href: captionNode.url,
+                    text: captionNode.children
+                      .map((n) => (n.type === 'text' ? n.value : ''))
+                      .join(''),
+                  },
+                }
+              : {}),
           })
           return
         }

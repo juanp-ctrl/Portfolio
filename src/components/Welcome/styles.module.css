@@ -29,6 +29,75 @@
   margin-left: 2.5rem;
 }
 
+/* Mobile: in normal flow right below the role so it never overlaps it */
+.hero-ctas {
+  position: relative;
+  margin-top: clamp(1.25rem, calc(var(--vh, 1vh) * 5), 3rem);
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+  z-index: 20;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* Floating CTAs: soft glow shadow, lift on hover */
+.cta {
+  display: inline-block;
+  transition:
+    transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out,
+    border-color 0.3s ease-in-out,
+    filter 0.3s ease-in-out;
+}
+
+.cta:hover {
+  transform: translateY(-4px);
+}
+
+.cta-primary {
+  box-shadow:
+    0 10px 24px -6px rgba(248, 215, 143, 0.45),
+    0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+.cta-primary:hover {
+  filter: brightness(1.05);
+  box-shadow:
+    0 16px 32px -6px rgba(248, 215, 143, 0.6),
+    0 6px 14px rgba(0, 0, 0, 0.6);
+}
+
+.cta-secondary {
+  box-shadow:
+    0 10px 24px -6px rgba(240, 240, 240, 0.18),
+    0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+.cta-secondary:hover {
+  box-shadow:
+    0 16px 32px -6px rgba(240, 240, 240, 0.3),
+    0 6px 14px rgba(0, 0, 0, 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta,
+  .cta:hover {
+    transform: none;
+  }
+}
+
+/* Tablet/desktop: pinned to the bottom-left of the hero */
+@media (min-width: 768px) {
+  .hero-ctas {
+    position: absolute;
+    bottom: calc(var(--vh, 1vh) * 10);
+    left: 2.5rem;
+    margin: 0;
+    gap: 1rem;
+  }
+}
+
 .role-text {
   position: relative;
   z-index: 1;
@@ -68,6 +137,9 @@
   .welcoming-section {
     margin-left: 5rem;
   }
+  .hero-ctas {
+    left: 5rem;
+  }
   .welcoming-section p,
   .welcoming-section h1 {
     font-size: 4rem;
@@ -84,6 +156,9 @@
 @media (min-width: 1640px) {
   .welcoming-section {
     margin-left: 7rem;
+  }
+  .hero-ctas {
+    left: 7rem;
   }
   .welcoming-section p,
   .welcoming-section h1 {
@@ -120,6 +195,21 @@
 
 @media (max-height: 700px) and (max-width: 580px) {
   .role-text p {
-    margin-top: 15%;
+    margin-top: 8%;
+  }
+}
+
+/* Short phones: keep the astronaut at its mobile size so it doesn't cover the CTAs */
+@media (max-height: 700px) and (max-width: 767px) {
+  .astronaut {
+    top: -8rem;
+  }
+
+  .astronaut img {
+    width: 208px;
+  }
+
+  .hero-ctas {
+    margin-top: 1rem;
   }
 }

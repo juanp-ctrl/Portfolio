@@ -337,6 +337,17 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   aspect-ratio: 16 / 10;
   align-self: center;
+  cursor: pointer;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.heroImageWrap:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.heroImageWrap:focus-visible {
+  outline: 2px solid var(--white_alternative);
+  outline-offset: 3px;
 }
 
 .heroImagePlaceholder {
@@ -364,6 +375,17 @@
 .heroImage {
   object-fit: cover;
   border-radius: inherit;
+  transition: transform 0.5s ease-in-out;
+}
+
+.heroImageWrap:hover .heroImage {
+  transform: scale(1.03);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroImageWrap:hover .heroImage {
+    transform: none;
+  }
 }
 
 /* ─── Responsive ────────────────────────────────────────────────────────── */

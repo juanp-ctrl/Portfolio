@@ -43,7 +43,11 @@ export default function Blog() {
           </div>
 
           {/* Cover image — above title on mobile, right column on desktop */}
-          <div className={styles.heroImageWrap}>
+          <Link
+            href={getPostLink(featured.slug)}
+            className={styles.heroImageWrap}
+            aria-label={featured.title}
+          >
             {featured.coverImage ? (
               <Image
                 src={featured.coverImage}
@@ -70,7 +74,7 @@ export default function Blog() {
                 <span>Cover image</span>
               </div>
             )}
-          </div>
+          </Link>
 
           <h1 className={styles.heroTitle}>{featured.title}</h1>
           <p className={styles.heroExcerpt}>{featured.excerpt}</p>

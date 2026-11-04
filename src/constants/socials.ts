@@ -8,10 +8,6 @@ export const socials = [
     path: 'https://github.com/juanp-ctrl',
   },
   {
-    title: 'Instagram',
-    path: 'https://instagram.com/pabloj_h',
-  },
-  {
     title: 'Twitter',
     path: 'https://x.com/JuanPabloJim_',
   },

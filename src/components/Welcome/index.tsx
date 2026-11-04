@@ -58,7 +58,7 @@ export default function Index() {
     enter: {
       y: 0,
       opacity: 1,
-      transition: { delay: 1.8, duration: 0.8, ease: [0.45, 0, 0.55, 1] },
+      transition: { delay: 0.8, duration: 0.6, ease: [0.45, 0, 0.55, 1] },
     },
   }
 

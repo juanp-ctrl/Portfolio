@@ -5,7 +5,7 @@ import '@/styles/globals.css'
 import { TransitionProvider } from '@/context/TransitionContext'
 import CustomCursor from '@/components/Cursor'
 import CookieConsent from '@/components/CookieConsent'
-import GoogleAnalytics from '@/components/GoogleAnalytics.tsx'
+import AnalyticsContext from '@/components/AnalyticsContext'
 import TransitionWrapper from '@/components/TransitionWrapper'
 import {
   personSchema,
@@ -51,7 +51,7 @@ export default function RootLayout({
       <body className="bg-white">
         <I18nProvider>
           <TransitionProvider>
-            <GoogleAnalytics />
+            <AnalyticsContext />
             <CustomCursor />
             <TransitionWrapper>{children}</TransitionWrapper>
             <CookieConsent />

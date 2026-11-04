@@ -27,7 +27,7 @@ This is my personal portfolio website, designed to showcase my skills, projects,
 - **Interactive UI** - Engaging user interface with custom animations
 - **Project Showcase** - Detailed display of projects with images and descriptions
 - **Custom Fonts** - Using Libre Baskerville and Josefin Sans for typography
-- **Cookie Consent** - GDPR compliant cookie consent management
+- **PostHog Analytics** - Consent-based product analytics (cookieless counting on reject), proxied through a Cloudflare Worker (`workers/posthog-proxy`)
 - **PWA Support** - Progressive Web App capabilities
 - **SEO Optimized** - Meta tags and structured data for better search engine visibility
 

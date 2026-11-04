@@ -19,6 +19,7 @@ import {
   experience,
   offensiveTools,
 } from '@/constants/about'
+import { track } from '@/lib/analytics'
 import styles from './styles.module.css'
 
 const heroVariants: Variants = {
@@ -127,7 +128,17 @@ export default function About() {
                   >
                     {t('cta_contact')}
                   </a>
-                  <a className={styles.btn} href={CV_PATH} download>
+                  <a
+                    className={styles.btn}
+                    href={CV_PATH}
+                    download
+                    onClick={() =>
+                      track('cv_downloaded', {
+                        cv_locale: locale,
+                        source: 'about_hero',
+                      })
+                    }
+                  >
                     {t('cta_cv')}
                   </a>
                   <a
@@ -340,7 +351,17 @@ export default function About() {
                   >
                     {t('contact_cta')}
                   </a>
-                  <a className={styles.btn} href={CV_PATH} download>
+                  <a
+                    className={styles.btn}
+                    href={CV_PATH}
+                    download
+                    onClick={() =>
+                      track('cv_downloaded', {
+                        cv_locale: locale,
+                        source: 'about_footer',
+                      })
+                    }
+                  >
                     {t('cta_cv')}
                   </a>
                 </div>

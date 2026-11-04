@@ -1,0 +1,10 @@
+name = "portfolio-insights-proxy"
+main = "src/index.js"
+compatibility_date = "2026-11-01"
+workers_dev = false
+
+# Custom subdomain for the proxy. Avoid names like "analytics", "posthog",
+# "tracking" or "ph": ad blockers match on them.
+routes = [
+  { pattern = "e.juanpablojimenez.dev", custom_domain = true }
+]

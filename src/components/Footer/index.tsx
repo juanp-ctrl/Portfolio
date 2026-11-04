@@ -4,6 +4,7 @@ import navItems from '@/constants/routes'
 import { useTranslations } from '@/context/I18nContext'
 import { socials } from '@/constants/socials'
 import { useTransition } from '@/context/TransitionContext'
+import { openCookiePreferences } from '@/components/CookieConsent'
 
 const Nav = () => {
   const t = useTranslations('common')
@@ -146,9 +147,23 @@ const Section2 = () => {
   const t = useTranslations('common')
   return (
     <div className="flex justify-between items-end">
-      <h2 className="text-black-primary text-4xl font-libre italic">
-        Juan Pablo <br /> Jiménez
-      </h2>
+      <div className="flex flex-col gap-3">
+        <h2 className="text-black-primary text-4xl font-libre italic">
+          Juan Pablo <br /> Jiménez
+        </h2>
+        <div className="flex gap-4 font-josefin text-sm text-black-secondary">
+          <a href="/privacy" className="hover:underline underline-offset-4">
+            {t('cookies.privacy')}
+          </a>
+          <button
+            type="button"
+            onClick={openCookiePreferences}
+            className="hover:underline underline-offset-4"
+          >
+            {t('cookies.preferences')}
+          </button>
+        </div>
+      </div>
       <div className="flex flex-col gap-1">
         <p className="text-[0.9rem]">{t('version')}</p>
         <p className="text-black-secondary font-josefin text-2xl">Folio 2026</p>

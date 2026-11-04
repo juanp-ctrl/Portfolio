@@ -1,6 +1,7 @@
 'use client'
 import Image from 'next/image'
 import { useTranslations, useLocale } from '@/context/I18nContext'
+import { track } from '@/lib/analytics'
 
 interface DownloadButtonProps {
   className?: string
@@ -17,15 +18,7 @@ export default function DownloadButton({
 
     window.open(`/cv/${encodeURIComponent(cvFileName)}`, '_blank')
 
-    // Track download with Google Analytics
-    if (typeof window !== 'undefined' && 'gtag' in window) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      ;(window as any).gtag('event', 'download', {
-        event_category: 'CV',
-        event_label: locale,
-        value: 1,
-      })
-    }
+    track('cv_downloaded', { cv_locale: locale, source: 'home' })
   }
 
   return (

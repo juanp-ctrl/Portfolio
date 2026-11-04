@@ -13,9 +13,13 @@
     "version": "Version",
     "lng": "EN",
     "cookies": {
-      "message": "This site uses cookies to analyze web traffic. Do you accept the use of cookies?",
+      "title": "Cookie consent",
+      "message": "This website uses analytics cookies (posthog) to understand how the site is used and improve it.",
+      "learn_more": "Learn more",
       "accept": "Accept",
-      "reject": "Decline"
+      "reject": "Decline",
+      "preferences": "Cookie preferences",
+      "privacy": "Privacy"
     }
   },
   "home": {
@@ -229,7 +233,9 @@
     "keywords_home": "software engineer, frontend developer, react developer, nextjs developer, typescript developer, web developer, creative developer, medellín developer, colombia developer, javascript developer, portfolio",
     "keywords_about": "Juan Pablo Jiménez, software engineer, web security, pentesting, web exploitation, HTB CWES, Hack The Box, cybersecurity, fullstack developer, Medellín developer, React, TypeScript, Next.js",
     "keywords_projects": "web development projects, React projects, Next.js applications, TypeScript apps, Random-Q, portfolio projects, frontend development showcase, creative web applications",
-    "keywords_contact": "contact frontend developer software engineer, hire React developer, web development services, freelance developer Medellín, remote developer, Juan Pablo Jiménez contact"
+    "keywords_contact": "contact frontend developer software engineer, hire React developer, web development services, freelance developer Medellín, remote developer, Juan Pablo Jiménez contact",
+    "privacy_title": "Privacy & Cookies | Juan Pablo Jiménez",
+    "privacy_description": "How this portfolio uses PostHog analytics and cookies, what data is collected, and how to manage your consent."
   },
   "blog": {
     "title": "Blog",

@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Galaxy from '@/components/Galaxy'
 import styles from './styles.module.css'
+import { track } from '@/lib/analytics'
 
 export default function Index() {
   const t = useTranslations('home')
@@ -96,12 +97,14 @@ export default function Index() {
           <motion.div className={styles['hero-ctas']} {...anim(ctasVariants)}>
             <Link
               href="/projects"
+              onClick={() => track('cta_clicked', { cta: 'projects' })}
               className={`${styles['cta']} ${styles['cta-primary']} rounded-lg bg-yellow-primary px-4 py-2 font-libre text-lg italic text-black-secondary md:px-5 md:py-3 md:text-2xl`}
             >
               {isClient ? t('cta_projects') : '...'}
             </Link>
             <Link
               href="/blog"
+              onClick={() => track('cta_clicked', { cta: 'blog' })}
               className={`${styles['cta']} ${styles['cta-secondary']} rounded-lg border border-white-primary/25 bg-black-secondary px-4 py-2 font-libre text-lg italic text-white-primary hover:border-white-primary/60 md:px-5 md:py-3 md:text-2xl`}
             >
               {isClient ? t('cta_blog') : '...'}

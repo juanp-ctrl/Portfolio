@@ -6,6 +6,7 @@ import Footer from '@/components/Footer'
 import { motion, Variants } from 'motion/react'
 import Image from 'next/image'
 import { useTranslations } from '@/context/I18nContext'
+import { track } from '@/lib/analytics'
 
 export default function Contact() {
   const t = useTranslations('contact')
@@ -94,6 +95,9 @@ export default function Contact() {
                   href={social.href}
                   target={social.title === 'Email' ? '_self' : '_blank'}
                   rel={social.title === 'Email' ? '' : 'noopener noreferrer'}
+                  onClick={() =>
+                    track('contact_clicked', { channel: social.title })
+                  }
                   className="bg-black-secondary p-6 rounded-lg border border-gray-700 hover:border-yellow-primary transition-all duration-300 hover:scale-105"
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -120,6 +124,9 @@ export default function Contact() {
               <div className="flex justify-center">
                 <a
                   href="mailto:juanpablojimenez.dev@gmail.com"
+                  onClick={() =>
+                    track('contact_clicked', { channel: 'Email', cta: true })
+                  }
                   className="bg-yellow-primary text-black px-8 py-3 rounded-full font-josefin font-semibold hover:bg-yellow-600 transition-colors duration-300"
                 >
                   {t('start_a_conversation')}

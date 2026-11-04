@@ -13,9 +13,13 @@
     "version": "Versión",
     "lng": "ES",
     "cookies": {
-      "message": "Este sitio utiliza cookies para analizar el tráfico web. ¿Aceptas el uso de cookies?",
+      "title": "Consentimiento de cookies",
+      "message": "Este sitio web usa cookies de analítica (posthog) para entender cómo se usa el sitio y mejorarlo.",
+      "learn_more": "Más información",
       "accept": "Aceptar",
-      "reject": "Rechazar"
+      "reject": "Rechazar",
+      "preferences": "Preferencias de cookies",
+      "privacy": "Privacidad"
     }
   },
   "home": {
@@ -229,7 +233,9 @@
     "keywords_home": "desarrollador frontend, desarrollador react, desarrollador nextjs, desarrollador typescript, desarrollador web, desarrollador creativo, desarrollador medellín, desarrollador colombia, desarrollador javascript, portafolio",
     "keywords_about": "Juan Pablo Jiménez, ingeniero de software, seguridad web, pentesting, explotación web, HTB CWES, Hack The Box, ciberseguridad, desarrollador fullstack, desarrollador Medellín, React, TypeScript, Next.js",
     "keywords_projects": "proyectos desarrollo web, proyectos React, aplicaciones Next.js, apps TypeScript, Random-Q, proyectos portafolio, showcase desarrollo frontend, aplicaciones web creativas",
-    "keywords_contact": "contactar desarrollador frontend, contratar desarrollador React, servicios desarrollo web, desarrollador freelance Medellín, desarrollador remoto, contacto Juan Pablo Jiménez"
+    "keywords_contact": "contactar desarrollador frontend, contratar desarrollador React, servicios desarrollo web, desarrollador freelance Medellín, desarrollador remoto, contacto Juan Pablo Jiménez",
+    "privacy_title": "Privacidad y Cookies | Juan Pablo Jiménez",
+    "privacy_description": "Cómo este portafolio usa la analítica de PostHog y cookies, qué datos se recogen y cómo gestionar tu consentimiento."
   },
   "blog": {
     "title": "Blog",

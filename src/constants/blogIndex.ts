@@ -13,6 +13,18 @@ export interface BlogPost {
 const blogIndex: Record<'en' | 'es', BlogPost[]> = {
   en: [
     {
+      slug: 'htb-cwes-certification',
+      title: 'Two Flags a Day: My HTB CWES Experience',
+      excerpt:
+        'Today I got my HTB Certified Web Exploitation Specialist (CWES) certification with 100/100 points. A year of study, a 5-day exam, and everything I learned along the way.',
+      date: '2026-11-04',
+      readingTime: 5,
+      tags: ['security', 'hack-the-box', 'certification', 'web-exploitation'],
+      category: 'Security',
+      coverImage: '/images/blog/htb-cwes-certification/cover.webp',
+      hasEsTranslation: true,
+    },
+    {
       slug: 'mini-shai-hulud-supply-chain-attack',
       title: 'Mini Shai-Hulud: How a Self-Spreading Worm Hit 170+ npm Packages',
       excerpt:
@@ -37,6 +49,18 @@ const blogIndex: Record<'en' | 'es', BlogPost[]> = {
     },
   ],
   es: [
+    {
+      slug: 'htb-cwes-certification',
+      title: 'Dos banderas por día: mi experiencia con la CWES de HTB',
+      excerpt:
+        'Hoy recibí mi certificación HTB Certified Web Exploitation Specialist (CWES) con 100/100 puntos. Un año de estudio, un examen de 5 días y todo lo que aprendí en el camino.',
+      date: '2026-11-04',
+      readingTime: 5,
+      tags: ['security', 'hack-the-box', 'certification', 'web-exploitation'],
+      category: 'Seguridad',
+      coverImage: '/images/blog/htb-cwes-certification/cover.webp',
+      hasEsTranslation: false,
+    },
     {
       slug: 'mini-shai-hulud-supply-chain-attack',
       title:

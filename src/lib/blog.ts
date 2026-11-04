@@ -4,6 +4,7 @@ import matter from 'gray-matter'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkGfm from 'remark-gfm'
+import { escapeHtml, safeUrl } from '@/lib/html'
 import type {
   Root,
   RootContent,
@@ -127,15 +128,6 @@ function normalizeLanguage(lang: string | null | undefined): string {
 
 // ─── HTML helpers ─────────────────────────────────────────────────────────────
 
-function escapeHtml(text: string): string {
-  return text
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#x27;')
-}
-
 function phrasingToHtml(nodes: PhrasingContent[]): string {
   return nodes
     .map((node) => {
@@ -149,9 +141,9 @@ function phrasingToHtml(nodes: PhrasingContent[]): string {
         case 'inlineCode':
           return `<code>${escapeHtml(node.value)}</code>`
         case 'link':
-          return `<a href="${escapeHtml(node.url)}" target="_blank" rel="noopener noreferrer">${phrasingToHtml(node.children)}</a>`
+          return `<a href="${safeUrl(node.url)}" target="_blank" rel="noopener noreferrer">${phrasingToHtml(node.children)}</a>`
         case 'image':
-          return `<img src="${escapeHtml(node.url)}" alt="${escapeHtml(node.alt ?? '')}" />`
+          return `<img src="${safeUrl(node.url)}" alt="${escapeHtml(node.alt ?? '')}" />`
         case 'break':
           return '<br/>'
         case 'delete':

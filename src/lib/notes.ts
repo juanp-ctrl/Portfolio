@@ -9,6 +9,7 @@ import type {
   CodeLanguage,
 } from '@/components/ClassNotes/types'
 import remarkGfm from 'remark-gfm'
+import { escapeHtml, safeUrl } from '@/lib/html'
 import type {
   Root,
   RootContent,
@@ -37,15 +38,15 @@ function phrasingToHtml(nodes: PhrasingContent[]): string {
     .map((node) => {
       switch (node.type) {
         case 'text':
-          return node.value
+          return escapeHtml(node.value)
         case 'strong':
           return `<strong>${phrasingToHtml(node.children)}</strong>`
         case 'emphasis':
           return `<em>${phrasingToHtml(node.children)}</em>`
         case 'inlineCode':
-          return `<code>${node.value}</code>`
+          return `<code>${escapeHtml(node.value)}</code>`
         case 'link':
-          return `<a href="${node.url}">${phrasingToHtml(node.children)}</a>`
+          return `<a href="${safeUrl(node.url)}" target="_blank" rel="noopener noreferrer">${phrasingToHtml(node.children)}</a>`
         case 'break':
           return '<br/>'
         default:

@@ -2,10 +2,19 @@ version: 2
 updates:
   - package-ecosystem: 'npm'
     directory: '/'
+    # Work flows develop -> main; dependency PRs go through develop first.
+    target-branch: 'develop'
     schedule:
       interval: 'weekly'
       day: 'monday'
     open-pull-requests-limit: 5
+    ignore:
+      # Tailwind v4 is a full migration (CSS-first config); do it manually.
+      - dependency-name: 'tailwindcss'
+        update-types: ['version-update:semver-major']
+      # Keep @types/node on the Node.js runtime major used for builds (22).
+      - dependency-name: '@types/node'
+        update-types: ['version-update:semver-major']
     groups:
       security-updates:
         applies-to: security-updates
@@ -18,3 +27,4 @@ updates:
         update-types:
           - 'minor'
           - 'patch'
+

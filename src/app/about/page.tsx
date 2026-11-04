@@ -50,7 +50,7 @@ export default function About() {
             </h1>
           </div>
           <Image
-            src={'/images/about_juan_pablo_jimenez.webp'}
+            src={'/images/about_profile_juan_pablo_jimenez.webp'}
             alt="Profile picture"
             priority
             width={400}

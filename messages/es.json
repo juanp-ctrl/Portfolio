@@ -13,9 +13,13 @@
     "version": "Versión",
     "lng": "ES",
     "cookies": {
-      "message": "Este sitio utiliza cookies para analizar el tráfico web. ¿Aceptas el uso de cookies?",
+      "title": "Consentimiento de cookies",
+      "message": "Este sitio web usa cookies de analítica (posthog) para entender cómo se usa el sitio y mejorarlo.",
+      "learn_more": "Más información",
       "accept": "Aceptar",
-      "reject": "Rechazar"
+      "reject": "Rechazar",
+      "preferences": "Preferencias de cookies",
+      "privacy": "Privacidad"
     }
   },
   "home": {
@@ -41,17 +45,84 @@
     "download_cv": "Descargar CV"
   },
   "about": {
-    "about_title": "Perfil",
-    "about_description": "Juan Pablo Jiménez, desarrollador frontend, con experiencia en TypeScript, Next.js y React, explorando constantemente nuevas herramientas, plataformas CMS y mejores prácticas para mantenerse a la vanguardia en el desarrollo frontend. Para mí, aprender no es solo una necesidad, sino una pasión que me impulsa a crear experiencias digitales innovadoras, eficientes y de impacto positivo.",
-    "developer": "DEVELOPER",
-    "engineer": "INGENIERO",
-    "about_me": "Soy Juan Pablo Jiménez, desarrollador frontend apasionado por combinar la precisión técnica con la creatividad artística. Me gradué en Ingeniería de Sistemas y Computación en la UPB de Medellín, Colombia, donde aprendí que el desarrollo de software no solo es técnico, sino también un arte.",
-    "about_me_2": "Mis intereses incluyen la programación, la resolución de problemas, el diseño visual, la música y la creación de contenido. Disfruto transformar ideas en soluciones del mundo real, asegurando que cada proyecto siga metodologías ágiles, mejoras iterativas, comunicación abierta y prácticas arquitectónicas limpias.",
-    "about_me_3": "En los últimos años he tenido la oportunidad de trabajar en proyectos frontend de alto impacto, impulsando la modernización de plataformas web empresariales. Contribuí a la migración de sistemas heredados reemplazando tecnologías deprecadas con soluciones escalables utilizando React y NextJS. Trabajando con arquitecturas de microfrontends, integré módulos complejos mientras aseguraba mantenibilidad y rendimiento.",
-    "about_me_4": "He implementado características de internacionalización, incluyendo soporte de derecha a izquierda (RTL) y adherido a altos estándares de accesibilidad (WCAG AA/AAA). A través de flujos de trabajo asistidos por IA con Cursor, mejoré la colaboración y la velocidad de iteración entre equipos. Estas experiencias han agudizado mis habilidades para resolver problemas y profundizado mi pasión por construir aplicaciones web inclusivas y de alta calidad.",
+    "about_title": "Sobre mí",
+    "about_description": "Juan Pablo Jiménez, ingeniero de software de Medellín enfocado en seguridad web. Desarrollador fullstack con TypeScript, React, Next.js, Angular y FastAPI, y HTB Certified Web Exploitation Specialist (CWES) con puntaje perfecto.",
+    "role": "Ingeniero de Software · Seguridad Web.",
+    "tagline": "Construyo aplicaciones web, y luego intento romperlas.",
+    "cta_contact": "Contáctame",
+    "cta_cv": "Descargar CV",
+    "cta_htb": "HTB · iParzi ↗",
+    "photo_alt": "Juan Pablo Jiménez",
+    "intro_aria": "Introducción",
+    "lead_start": "Construyo aplicaciones web, y últimamente paso el mismo tiempo",
+    "lead_em": "rompiéndolas",
+    "lead_end": ".",
+    "intro_p1": "Soy ingeniero de software de Medellín con más de 4 años creando productos web: migraciones empresariales en Globant y plataformas fullstack que conectan máquinas de laboratorio con la nube en Gorilla Logic. Construir las cosas bien me enseñó dónde suelen fallar.",
+    "intro_p2": "Esa curiosidad se convirtió en un camino. Este año me dediqué de lleno a la seguridad ofensiva, jugué cada temporada de Hack The Box y obtuve la HTB CWES con puntaje perfecto. Hoy estoy en la intersección entre desarrollo y seguridad: escribo código con mentalidad de atacante y pruebo aplicaciones con ojo de desarrollador.",
+    "stat_years": "años construyendo",
+    "stat_cwes": "examen HTB CWES",
+    "stat_gpa": "promedio · honores",
+    "what_title": "Lo que hago",
+    "build_title": "Construir",
+    "build_text": "Ingeniería fullstack con TypeScript, React, Next.js, Angular, Node y FastAPI. Accesible (WCAG AA/AAA), probada y diseñada para escalar, desde microfrontends hasta servicios en la nube en AWS y GCP.",
+    "break_title": "Romper",
+    "break_text": "Pentesting de aplicaciones web: encontrar vulnerabilidades, encadenarlas y convertirlas en reportes claros y profesionales que ayudan a los equipos a corregir lo que importa.",
+    "certs_title": "Certificaciones",
+    "cwes_badge": "Hack The Box · 2026",
+    "cwes_title": "Certified Web Exploitation Specialist (CWES)",
+    "cwes_text": "Un examen práctico de 7 días: encontrar y explotar vulnerabilidades web reales, capturar las banderas y entregar un reporte de pentest profesional.",
+    "cwes_points": "/ 100 PUNTOS",
+    "cwes_alt": "Certificado HTB Certified Web Exploitation Specialist",
+    "cwes_verify": "Verificar en Credly ↗",
+    "cwes_story": "Leer la historia →",
+    "cc_badge": "ISC2 · 2023",
+    "cc_title": "Certified in Cybersecurity (CC)",
+    "cc_text": "Principios de seguridad, seguridad de redes, control de acceso y operaciones de seguridad.",
+    "courses_label": "Cursos",
+    "motto": "Conquistar lo inextricable denodadamente",
     "skills_title": "Habilidades",
-    "skills": "Me especializo en TypeScript, Next.js y React, y estoy constantemente explorando nuevas herramientas, plataformas CMS y mejores prácticas para mantenerme a la vanguardia en el desarrollo frontend. Para mí, aprender no es solo una necesidad, sino una pasión que me impulsa a crear experiencias digitales innovadoras, eficientes y de impacto positivo.",
-    "contact": "Contacto"
+    "skills_offensive": "Seguridad ofensiva",
+    "skills_offensive_concepts": "Explotación web|Reportes de pentest|Exploits en Python|Linux y Bash",
+    "skills_engineering": "Ingeniería",
+    "skills_cloud": "Cloud y DevOps",
+    "experience_title": "Experiencia",
+    "experience": {
+      "gorilla": {
+        "company": "Gorilla Logic",
+        "role": "Full Stack Engineer",
+        "dates": "Ago 2025 — Hoy",
+        "text": "Funcionalidades en Angular + FastAPI que conectan sistemas legados y máquinas de laboratorio con una nueva plataforma en la nube; dispositivos edge en AWS ECS/ECR."
+      },
+      "upb": {
+        "company": "Universidad Pontificia Bolivariana",
+        "role": "Docente",
+        "dates": "Nov 2025 — Jun 2026",
+        "text": "Diseñé y dicté un diplomado de Desarrollo Fullstack enfocado en fundamentos: Git, Bash y JavaScript antes que frameworks."
+      },
+      "globant": {
+        "company": "Globant",
+        "role": "Front-End Developer",
+        "dates": "Ene 2024 — Ago 2025",
+        "text": "Migración de YUI legado a React/Next.js con microfrontends, cumplimiento WCAG AA/AAA y soporte RTL."
+      },
+      "freelance": {
+        "company": "Freelance",
+        "role": "Full Stack Developer",
+        "dates": "Jun 2022 — Ene 2024",
+        "text": "Diseñé, construí y desplegué sitios web para clientes, desde wireframes hasta servidores seguros en GCP y scripts de automatización."
+      }
+    },
+    "beyond_title": "Más allá del código",
+    "mentor_label": "Mentor",
+    "mentor_title": "Girls Programming Club",
+    "mentor_text": "Acompaño a jóvenes mujeres a aprender programación, algoritmos y resolución de problemas con confianza.",
+    "mentor_cta": "Ver credencial ↗",
+    "founder_label": "Fundador",
+    "founder_title": "Competitive Programming Club",
+    "founder_text": "Creé una comunidad en la empresa para practicar y competir en retos algorítmicos.",
+    "contact_title": "Hablemos",
+    "contact_text": "¿Estás construyendo algo, o quieres que alguien intente romperlo? Siempre me alegra conectar.",
+    "contact_cta": "Escríbeme"
   },
   "contact": {
     "contact": "Contacto",
@@ -149,7 +220,7 @@
     "home_og_title": "Juan Pablo Jiménez | Desarrollador Frontend | React Next.js TypeScript",
     "home_description": "Portafolio de Juan Pablo Jiménez, Desarrollador Frontend e Ingeniero Creativo de Medellín, Colombia. Especializado en React, Next.js y TypeScript. Explora proyectos, habilidades y experiencia.",
     "about_title": "Perfil | Juan Pablo Jiménez",
-    "about_og_title": "Sobre Juan Pablo Jiménez | Desarrollador Frontend de Medellín",
+    "about_og_title": "Sobre Juan Pablo Jiménez | Ingeniero de Software y Seguridad Web",
     "projects_title": "Proyectos | Juan Pablo Jiménez",
     "projects_description": "Explora los proyectos de desarrollo web de Juan Pablo Jiménez. Desde Random-Q hasta aplicaciones empresariales, descubre cómo la creatividad se encuentra con la excelencia técnica en proyectos de React y Next.js.",
     "projects_og_title": "Proyectos de Desarrollo Web | Portafolio Juan Pablo Jiménez",
@@ -160,9 +231,11 @@
     "og_image_alt": "Portafolio Juan Pablo Jiménez - Astronauta flotando en el espacio con texto de portafolio",
     "site_name": "Portafolio Juan Pablo Jiménez",
     "keywords_home": "desarrollador frontend, desarrollador react, desarrollador nextjs, desarrollador typescript, desarrollador web, desarrollador creativo, desarrollador medellín, desarrollador colombia, desarrollador javascript, portafolio",
-    "keywords_about": "Juan Pablo Jiménez, desarrollador frontend, ingeniero de software, graduado UPB, desarrollador Medellín, especialista React, experto TypeScript, accesibilidad web, WCAG, arquitectura microfrontend",
+    "keywords_about": "Juan Pablo Jiménez, ingeniero de software, seguridad web, pentesting, explotación web, HTB CWES, Hack The Box, ciberseguridad, desarrollador fullstack, desarrollador Medellín, React, TypeScript, Next.js",
     "keywords_projects": "proyectos desarrollo web, proyectos React, aplicaciones Next.js, apps TypeScript, Random-Q, proyectos portafolio, showcase desarrollo frontend, aplicaciones web creativas",
-    "keywords_contact": "contactar desarrollador frontend, contratar desarrollador React, servicios desarrollo web, desarrollador freelance Medellín, desarrollador remoto, contacto Juan Pablo Jiménez"
+    "keywords_contact": "contactar desarrollador frontend, contratar desarrollador React, servicios desarrollo web, desarrollador freelance Medellín, desarrollador remoto, contacto Juan Pablo Jiménez",
+    "privacy_title": "Privacidad y Cookies | Juan Pablo Jiménez",
+    "privacy_description": "Cómo este portafolio usa la analítica de PostHog y cookies, qué datos se recogen y cómo gestionar tu consentimiento."
   },
   "blog": {
     "title": "Blog",

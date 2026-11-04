@@ -83,6 +83,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
       alternates: hreflang(`${BASE_URL}/fullstack-course/resources`),
     },
+    {
+      url: `${BASE_URL}/privacy`,
+      lastModified: new Date('2026-11-04'),
+      changeFrequency: 'yearly',
+      priority: 0.2,
+      alternates: hreflang(`${BASE_URL}/privacy`),
+    },
   ]
 
   return [...staticRoutes, ...blogPosts, ...studentProfiles]

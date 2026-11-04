@@ -11,7 +11,12 @@ interface ImageItem {
 
 const imagesLength = 18
 
-function Index() {
+function Index({
+  className = 'h-[calc(95vh-100px)]',
+}: {
+  /** Size/positioning classes for the mouse-tracking layer */
+  className?: string
+}) {
   const [mouseCoordinates, setMouseCoordinates] = useState({ x: 0, y: 0 })
   const [lastAddedCoordinates, setLastAddedCoordinates] = useState({
     x: 0,
@@ -103,7 +108,7 @@ function Index() {
 
   return (
     <div
-      className="absolute w-full h-[calc(95vh-100px)] overflow-hidden z-[2]"
+      className={`absolute w-full overflow-hidden z-[2] ${className}`}
       onMouseMove={handleMouseMovement}
     >
       <AnimatePresence>

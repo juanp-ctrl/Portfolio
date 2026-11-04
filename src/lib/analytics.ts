@@ -9,6 +9,10 @@ export type ConsentStatus = 'granted' | 'denied' | 'pending'
 export type AnalyticsEvent =
   'cv_downloaded' | 'cta_clicked' | 'contact_clicked' | 'language_changed'
 
+// Only production hosts send analytics; localhost and *.pages.dev previews
+// are ignored to avoid polluting the data.
+const ANALYTICS_HOSTS = ['juanpablojimenez.dev', 'www.juanpablojimenez.dev']
+
 let initialized = false
 
 // Site-wide properties attached to every event via before_send, so they are
@@ -34,6 +38,7 @@ function cleanupLegacyAnalytics() {
 
 export function initAnalytics() {
   if (initialized || typeof window === 'undefined' || !POSTHOG_KEY) return
+  if (!ANALYTICS_HOSTS.includes(window.location.hostname)) return
   initialized = true
 
   cleanupLegacyAnalytics()

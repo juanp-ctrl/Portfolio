@@ -31,8 +31,14 @@ export default function RootLayout({
       lang="en"
       className={`${libreBaskerville.variable} ${josefinSans.variable}`}
       data-scroll-behavior="smooth"
+      suppressHydrationWarning
     >
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var lng=localStorage.getItem('lng');if(lng!=='en'&&lng!=='es'){lng=(navigator.language||'').toLowerCase().indexOf('es')===0?'es':'en';localStorage.setItem('lng',lng);}var root=document.documentElement;root.lang=lng;root.dataset.locale=lng;if(sessionStorage.getItem('pageLoaded')){root.dataset.skipIntro='1';}}catch(e){}})();`,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}

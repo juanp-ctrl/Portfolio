@@ -14,7 +14,6 @@ export const personSchema = {
     'https://github.com/juanp-ctrl',
     'https://www.linkedin.com/in/juan-pablo-jimenez-h/',
     'https://twitter.com/JuanPabloJim_',
-    'https://instagram.com/pabloj_h',
   ],
   knowsAbout: [
     'React',
@@ -77,7 +76,6 @@ export const profilePageSchema = {
       'https://github.com/juanp-ctrl',
       'https://www.linkedin.com/in/juan-pablo-jimenez-h/',
       'https://twitter.com/JuanPabloJim_',
-      'https://instagram.com/pabloj_h',
     ],
     knowsAbout: [
       'React',

@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import { motion, Variants } from 'motion/react'
-import { useEffect, useState } from 'react'
+import { useEffect, useSyncExternalStore } from 'react'
 import Welcome from '@/components/Welcome'
 import PageTransition from '@/components/PageTransition'
 import Text from '@/components/Text'
@@ -29,21 +29,36 @@ const DownloadButton = dynamic(() => import('@/components/DownloadButton'), {
   loading: () => <div className="h-16" />,
 })
 
+const INTRO_EVENT = 'page-loaded'
+
+function subscribeIntro(onStoreChange: () => void) {
+  window.addEventListener(INTRO_EVENT, onStoreChange)
+  return () => window.removeEventListener(INTRO_EVENT, onStoreChange)
+}
+
+function getIntroSnapshot() {
+  return !sessionStorage.getItem('pageLoaded')
+}
+
+function getServerIntroSnapshot() {
+  return true
+}
+
 export default function Home() {
   const t = useTranslations('home')
-  const [isLoading, setIsLoading] = useState(() => {
-    if (typeof window === 'undefined') return true
-    return !sessionStorage.getItem('pageLoaded')
-  })
+  const isLoading = useSyncExternalStore(
+    subscribeIntro,
+    getIntroSnapshot,
+    getServerIntroSnapshot,
+  )
 
   useEffect(() => {
-    if (!sessionStorage.getItem('pageLoaded')) {
-      const timer = setTimeout(() => {
-        setIsLoading(false)
-        sessionStorage.setItem('pageLoaded', 'true')
-      }, 3200)
-      return () => clearTimeout(timer)
-    }
+    if (sessionStorage.getItem('pageLoaded')) return
+    const timer = setTimeout(() => {
+      sessionStorage.setItem('pageLoaded', 'true')
+      window.dispatchEvent(new Event(INTRO_EVENT))
+    }, 3200)
+    return () => clearTimeout(timer)
   }, [])
 
   const anim = (variants: Variants) => ({
@@ -71,7 +86,10 @@ export default function Home() {
         {isLoading && (
           <>
             {/* Mask Effect :) */}
-            <motion.div className="flex justify-center items-center w-screen h-screen">
+            <motion.div
+              data-home-intro
+              className="flex justify-center items-center w-screen h-screen"
+            >
               <svg
                 className="size-32"
                 viewBox="0 0 200 100"

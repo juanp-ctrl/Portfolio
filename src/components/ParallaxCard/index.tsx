@@ -1,5 +1,11 @@
 'use client'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from 'react'
 import Image from 'next/image'
 import styles from './styles.module.css'
 
@@ -8,6 +14,22 @@ interface ParallaxCardProps {
   tagline: string
   url: string
   image: string
+}
+
+const HOVER_QUERY = '(hover: hover) and (pointer: fine)'
+
+function subscribeHover(onStoreChange: () => void) {
+  const media = window.matchMedia(HOVER_QUERY)
+  media.addEventListener('change', onStoreChange)
+  return () => media.removeEventListener('change', onStoreChange)
+}
+
+function getHoverSnapshot() {
+  return window.matchMedia(HOVER_QUERY).matches
+}
+
+function getServerHoverSnapshot() {
+  return false
 }
 
 export default function ParallaxCard({
@@ -20,18 +42,11 @@ export default function ParallaxCard({
   const leaveTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
   const [dims, setDims] = useState({ width: 0, height: 0 })
   const [mouse, setMouse] = useState({ x: 0, y: 0 })
-  const [canHover, setCanHover] = useState(
-    () =>
-      typeof window !== 'undefined' &&
-      window.matchMedia('(hover: hover) and (pointer: fine)').matches,
+  const canHover = useSyncExternalStore(
+    subscribeHover,
+    getHoverSnapshot,
+    getServerHoverSnapshot,
   )
-
-  useEffect(() => {
-    const mq = window.matchMedia('(hover: hover) and (pointer: fine)')
-    const handler = (e: MediaQueryListEvent) => setCanHover(e.matches)
-    mq.addEventListener('change', handler)
-    return () => mq.removeEventListener('change', handler)
-  }, [])
 
   useEffect(() => {
     const el = wrapRef.current

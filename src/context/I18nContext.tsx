@@ -1,5 +1,11 @@
 'use client'
-import { createContext, useContext, useState, type ReactNode } from 'react'
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useSyncExternalStore,
+  type ReactNode,
+} from 'react'
 import en from '../../messages/en.json'
 import es from '../../messages/es.json'
 
@@ -7,6 +13,7 @@ type Locale = 'en' | 'es'
 type Messages = typeof en
 
 const messages = { en, es } as Record<Locale, Messages>
+const LOCALE_EVENT = 'locale-change'
 
 interface I18nContextValue {
   locale: Locale
@@ -18,23 +25,56 @@ const I18nContext = createContext<I18nContextValue>({
   setLocale: () => {},
 })
 
-function getInitialLocale(): Locale {
-  if (typeof window === 'undefined') return 'en'
-  const stored = localStorage.getItem('lng') as Locale | null
-  if (stored === 'en' || stored === 'es') return stored
-  const detected: Locale = navigator.language.toLowerCase().startsWith('es')
-    ? 'es'
-    : 'en'
-  localStorage.setItem('lng', detected)
-  return detected
+function isLocale(value: string | null): value is Locale {
+  return value === 'en' || value === 'es'
+}
+
+function detectLocale(): Locale {
+  return navigator.language.toLowerCase().startsWith('es') ? 'es' : 'en'
+}
+
+function readLocale(): Locale {
+  const stored = localStorage.getItem('lng')
+  if (isLocale(stored)) return stored
+  return detectLocale()
+}
+
+function subscribeLocale(onStoreChange: () => void) {
+  window.addEventListener(LOCALE_EVENT, onStoreChange)
+  window.addEventListener('storage', onStoreChange)
+  return () => {
+    window.removeEventListener(LOCALE_EVENT, onStoreChange)
+    window.removeEventListener('storage', onStoreChange)
+  }
+}
+
+function getServerLocale(): Locale {
+  return 'en'
 }
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(getInitialLocale)
+  const locale = useSyncExternalStore(
+    subscribeLocale,
+    readLocale,
+    getServerLocale,
+  )
+
+  useEffect(() => {
+    const clientLocale = readLocale()
+    if (locale !== clientLocale) return
+    if (!isLocale(localStorage.getItem('lng'))) {
+      localStorage.setItem('lng', clientLocale)
+    }
+    document.documentElement.lang = clientLocale
+    document.documentElement.dataset.locale = clientLocale
+    document.documentElement.dataset.localeReady = '1'
+  }, [locale])
 
   const setLocale = (newLocale: Locale) => {
     localStorage.setItem('lng', newLocale)
-    setLocaleState(newLocale)
+    document.documentElement.lang = newLocale
+    document.documentElement.dataset.locale = newLocale
+    window.dispatchEvent(new Event(LOCALE_EVENT))
   }
 
   return (

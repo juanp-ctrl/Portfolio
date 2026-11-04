@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform, Variants } from 'motion/react'
 import { useTranslations } from '@/context/I18nContext'
-import { Suspense, useState } from 'react'
+import { Suspense } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Galaxy from '@/components/Galaxy'
@@ -9,8 +9,6 @@ import { track } from '@/lib/analytics'
 
 export default function Index() {
   const t = useTranslations('home')
-  // Use lazy initialization to check if we're on the client
-  const [isClient] = useState(() => typeof window !== 'undefined')
   const { scrollY } = useScroll()
   const rotateAstronaut = useTransform(scrollY, [0, 700], [0, 360])
 
@@ -60,7 +58,7 @@ export default function Index() {
     enter: {
       y: 0,
       opacity: 1,
-      transition: { delay: 1.8, duration: 0.8, ease: [0.45, 0, 0.55, 1] },
+      transition: { delay: 0.8, duration: 0.6, ease: [0.45, 0, 0.55, 1] },
     },
   }
 
@@ -85,14 +83,14 @@ export default function Index() {
           </div>
           <div className={`${styles['welcoming-section']}`}>
             <p className="font-libre italic text-4xl md:text-5xl">
-              {isClient ? t('welcome_hi') : '...'}
+              {t('welcome_hi')}
             </p>
             <h1 className="mt-3 text-[2.5rem] md:text-[3.25rem]">
-              {isClient ? t('welcome_name') : '...'}
+              {t('welcome_name')}
             </h1>
           </div>
           <div className={`${styles['role-text']}`}>
-            <p>{isClient ? t('dev_role') : '...'}</p>
+            <p>{t('dev_role')}</p>
           </div>
           <motion.div className={styles['hero-ctas']} {...anim(ctasVariants)}>
             <Link
@@ -100,14 +98,14 @@ export default function Index() {
               onClick={() => track('cta_clicked', { cta: 'projects' })}
               className={`${styles['cta']} ${styles['cta-primary']} rounded-lg bg-yellow-primary px-4 py-2 font-libre text-lg italic text-black-secondary md:px-5 md:py-3 md:text-2xl`}
             >
-              {isClient ? t('cta_projects') : '...'}
+              {t('cta_projects')}
             </Link>
             <Link
               href="/blog"
               onClick={() => track('cta_clicked', { cta: 'blog' })}
               className={`${styles['cta']} ${styles['cta-secondary']} rounded-lg border border-white-primary/25 bg-black-secondary px-4 py-2 font-libre text-lg italic text-white-primary hover:border-white-primary/60 md:px-5 md:py-3 md:text-2xl`}
             >
-              {isClient ? t('cta_blog') : '...'}
+              {t('cta_blog')}
             </Link>
           </motion.div>
         </div>

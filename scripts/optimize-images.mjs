@@ -46,7 +46,7 @@ console.log('✓ moon.png → moon.webp')
 console.log('\n── WebP resize in-place ──')
 
 await resizeInPlace(join(img, 'juan_pablo_jimenez.webp'), { width: 800, fit: 'inside' })
-await resizeInPlace(join(img, 'about_juan_pablo_jimenez.webp'), { width: 800, height: 800, fit: 'cover' })
+await resizeInPlace(join(img, 'about_profile_juan_pablo_jimenez.webp'), { width: 800, height: 800, fit: 'cover' })
 await resizeInPlace(join(img, 'randomq-mockup-iphone5.webp'), { width: 800, fit: 'inside' })
 await resizeInPlace(join(img, 'randomq-mockup-iphone2.webp'), { width: 600, fit: 'inside' })
 await resizeInPlace(join(img, 'IMG_18.webp'), { width: 600, height: 800, fit: 'cover' })

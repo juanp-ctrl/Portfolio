@@ -32,8 +32,9 @@ export default function NotesContent({ note }: NotesContentProps) {
       <div className={styles.noteBlocks}>
         {note.blocks.map((block) => {
           if (block.type === 'text') {
+            const Tag = block.flow === 'block' ? 'div' : 'p'
             return (
-              <p
+              <Tag
                 key={block.id}
                 className={styles.textBlock}
                 dangerouslySetInnerHTML={{ __html: block.content }}

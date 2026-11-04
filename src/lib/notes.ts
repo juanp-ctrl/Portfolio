@@ -138,6 +138,7 @@ export function parseMarkdownToBlocks(content: string): NoteBlock[] {
         blocks.push({
           id: String(blockId++),
           type: 'text',
+          flow: 'phrasing',
           content: phrasingToHtml(paragraph.children),
         })
         break
@@ -160,6 +161,7 @@ export function parseMarkdownToBlocks(content: string): NoteBlock[] {
         blocks.push({
           id: String(blockId++),
           type: 'text',
+          flow: 'block',
           content: headingToHtml(heading),
         })
         break
@@ -169,6 +171,7 @@ export function parseMarkdownToBlocks(content: string): NoteBlock[] {
         blocks.push({
           id: String(blockId++),
           type: 'text',
+          flow: 'block',
           content: listToHtml(list),
         })
         break
@@ -178,6 +181,7 @@ export function parseMarkdownToBlocks(content: string): NoteBlock[] {
         blocks.push({
           id: String(blockId++),
           type: 'text',
+          flow: 'block',
           content: tableToHtml(table),
         })
         break
